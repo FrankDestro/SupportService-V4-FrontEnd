@@ -1,0 +1,21 @@
+.relogio-container {
+    padding: 5px;
+    border-radius: 2px;
+    text-align: center;
+    max-width: 300px;
+    margin: auto;
+  }
+    
+  .relogio-hora {
+    font-size: 16px;
+    font-family: 'Orbitron', sans-serif; /* Fonte futurista */
+    color: rgb(16, 111, 219);
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  .relogio-container:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  

@@ -1,0 +1,35 @@
+.search-user-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 20px;
+  justify-content: space-between;
+}
+
+.search-input-container {
+  position: relative;
+  flex: 1; /* Faz o input ocupar espaço disponível */
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente */
+  gap: 10px; /* Espaçamento entre os elementos */
+}
+
+.status-select-container {
+  flex: 1; /* Faz o select ocupar espaço disponível */
+}
+
+.input-container {
+  position: relative;
+  margin: 20px 0; /* Ajuste conforme necessário */
+}

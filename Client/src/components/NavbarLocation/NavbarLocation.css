@@ -1,0 +1,28 @@
+.container-navbar-location {
+  display: flex;
+  background-color: #ffffff; /* Cor de fundo do card */
+  border: 1px solid var(--color-border); /* Borda leve */
+  border-radius: 3px; /* Cantos arredondados */
+  padding: 10px; /* Espaçamento interno */
+  transition: box-shadow 0.3s ease; /* Transição suave ao passar o mouse */
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-content-navbar-location {
+  display: flex;
+  align-items: center;
+}
+
+.container-navbar-location h3 {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  margin: 0;
+}
+
+.navbar-icon {
+  margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+  color: #adb4bb; /* Cor do ícone */
+  font-size: 14px; /* Tamanho do ícone */
+}

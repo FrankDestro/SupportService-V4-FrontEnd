@@ -1,0 +1,24 @@
+.content {
+  margin-left: 250px; /* Espaço reservado para a sidebar */
+  padding: 20px;
+  flex-grow: 1;
+  background-color: var(--content-bg, #ffffff93);
+  height: calc(100vh - 104px); /* Altura total menos a nova altura do header e footer */
+  overflow-y: auto;
+  transition: margin-left 0.3s ease;
+}
+
+.content.collapsed {
+  margin-left: 150px;
+}
+
+.main-content {
+  display: flex;
+  height: calc(100vh - 104px); /* Altura total menos header e footer */
+  margin-top: 0px; /* Espaço ajustado para o cabeçalho */
+  padding-bottom: 42px;
+  box-sizing: border-box;
+}
+.footer.collapsed {
+  margin-left: 150px; /* Ajuste para o rodapé quando a sidebar estiver colapsada */
+}

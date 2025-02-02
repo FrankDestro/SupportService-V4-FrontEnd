@@ -1,0 +1,15 @@
+/* Centralizando o modal no meio da tela */
+.modal-dialog {
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente */
+    max-width: 80%;           /* Ajuste a largura do modal conforme necessário */
+    margin: 1.75rem auto;     /* Garante que o modal fique centralizado na tela */
+  }
+  
+  /* Ajuste da largura do conteúdo do modal */
+  .modal-content {
+    width: 100%; /* Ajusta para 100% da largura disponível do modal */
+    max-width: 1100px; /* Largura máxima */
+  }
+  

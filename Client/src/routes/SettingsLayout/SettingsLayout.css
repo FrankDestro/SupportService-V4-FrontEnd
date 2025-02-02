@@ -1,0 +1,9 @@
+.container-settings-page {
+    display: flex;
+}
+
+.container-settings-outlet {
+    padding: 20px;
+    height: 780px;
+    width: 100%;
+}

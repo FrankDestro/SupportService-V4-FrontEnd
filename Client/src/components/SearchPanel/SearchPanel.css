@@ -1,0 +1,18 @@
+.ticket-search-panel {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-filter-panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ticket-status-select {
+  flex: 1;
+}

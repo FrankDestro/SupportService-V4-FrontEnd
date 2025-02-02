@@ -1,0 +1,374 @@
+/*  CONTAINER E ESTRUTURA INICIO*/
+.container-ticket-details {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.left-ticket-details-summary {
+  width: 35%;
+  height: 720px;
+  padding: 10px;
+}
+
+.center-ticket-details-history {
+  width: 100%;
+  padding: 10px;
+}
+
+.right-center-ticket-details-options {
+  width: 30%;
+  padding: 10px;
+}
+/*  CONTAINER E ESTRUTURA FIM*/
+
+/*  RESUMO DO CHAMADO LADO ESQUERDO INICIO */
+.ticket-details {
+  padding: 10px;
+  max-width: 600px;
+}
+
+.ticket-details .main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.description-container {
+  overflow-y: auto; /* Adiciona o scroll vertical */
+  max-height: 230px; /* Define a altura máxima para permitir scroll */
+  /* Estilização personalizada do scroll */
+  scrollbar-width: thin; /* Para navegadores que suportam */
+  scrollbar-color: #00336693 #f9f9f9; /* Cor da barra e fundo do scroll */
+}
+
+.ticket-details h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+.ticket-details p {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.ticket-details p strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Status badge styling */
+.ticket-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+  background-color: #3a7df1;
+}
+
+/* Customize colors based on ticket status */
+.ticket-status.FINISHED {
+  background-color: #4caf50 !important; /* Green */
+  color: white !important;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+.ticket-status.IN_PROGRESS {
+  background-color: #ff9800; /* Orange */
+  color: white !important;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+
+.ticket-status.CANCELED {
+  background-color: #f44336; /* Red */
+  color: white !important;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+
+.ticket-status.OPEN {
+  background-color: #2187cc; /* Red */
+  color: white !important;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+
+.ticket-status.FROZEN {
+  background-color: #8e8f91; /* Red */
+  color: white !important;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+
+.ticket-onSLA {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+  background-color: #3a7df1;
+}
+
+/* Customize colors based on SLA or not */
+.ticket-onSLA.true {
+  background-color: #4caf50; /* Orange */
+  color: white !important;
+  padding: 5px;
+  border-radius: 4px;
+}
+.ticket-onSLA.false {
+  background-color: #f44336; /* Red */
+  color: white !important;
+  padding: 5px;
+  border-radius: 4px;
+}
+/*  RESUMO DO CHAMADO LADO ESQUERDO FIM */
+
+/*  ANDAMENTO DO CHAMADO CENTRO INICIO */
+.center-ticket-details-history {
+  padding: 1.5rem;
+  border-radius: 2px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  overflow-y: auto; 
+  height: 360px;
+  max-height:  655px; 
+  scrollbar-color: #00336693 #f9f9f9;
+}
+
+.center-ticket-details-history h3 {
+  font-size: 1.5rem; /* Tamanho da fonte do título */
+  color: #333; /* Cor do texto */
+  margin-bottom: 1rem; /* Margem abaixo do título */
+}
+
+.history-entry {
+  display: flex;
+  gap: 1rem; /* Espaçamento entre usuário e informações */
+  margin-bottom: 1rem; /* Espaço entre entradas de histórico */
+  padding: 1rem;
+  background-color: #ffffff; /* Cor de fundo do card */
+  border: 1px solid var(--color-border); /* Borda leve */
+  border-radius: 3px; /* Cantos arredondados */
+  transition: box-shadow 0.3s ease; /* Transição suave ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza a imagem do usuário */
+  width: 80px; /* Largura fixa para a seção do usuário */
+}
+
+.user-image {
+  width: 60px; /* Largura da imagem do usuário */
+  height: 60px; /* Altura da imagem do usuário */
+  border-radius: 50%; /* Imagem circular */
+  object-fit: cover; /* Corta a imagem mantendo a proporção */
+  border: 2px solid #ddd; /* Borda sutil */
+}
+
+.user-details {
+  text-align: center; /* Centraliza o texto */
+  margin-top: 0.5rem; /* Espaço acima do texto */
+  font-size: 0.85rem; /* Tamanho da fonte do texto do usuário */
+  color: #555; /* Cor do texto do usuário */
+}
+
+.history-info {
+  flex: 1; /* Ocupa o restante do espaço */
+}
+
+.history-description {
+  font-size: 1rem; /* Tamanho da fonte da descrição */
+  margin-bottom: 0.5rem; /* Espaço abaixo da descrição */
+  color: #444; /* Cor da descrição */
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.history-info p {
+  margin: 0.25rem 0; /* Margens para os parágrafos */
+}
+
+.public-tag {
+  display: inline-block; /* Exibe como bloco em linha */
+  margin-top: 0.5rem; /* Espaço acima da tag */
+  padding: 0.25rem 0.5rem; /* Padding para a tag */
+  font-size: 0.75rem; /* Tamanho da fonte da tag */
+  color: #28a745; /* Cor do texto da tag */
+  background-color: #e9f8f0; /* Fundo da tag */
+  border-radius: 4px; /* Bordas arredondadas para a tag */
+}
+
+.custom-accordion {
+  border: 1px solid #ccc;
+}
+
+.custom-accordion-item {
+  margin-bottom: 10px;
+}
+
+.custom-accordion-header {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.custom-accordion-body {
+  padding: 15px;
+  background-color: #ffffff;
+  border-top: 1px solid #ccc;
+}
+
+.custom-ticket-form-item {
+  margin-bottom: 15px;
+}
+
+.custom-textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+}
+
+.custom-textarea:focus {
+  border: 1px solid #007bff;
+  box-shadow: none;
+}
+
+.container-form-checkbox {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-group-checkbox {
+  display: flex;
+  gap: 10px;
+}
+
+/*  ANDAMENTO DO CHAMADO CENTRO FIM */
+
+/*  OPÇÕES CHAMADO LADO DIREITO INICIO */
+.right-center-ticket-details-options {
+  background-color: #f9f9f9; /* Fundo leve */
+  border: 1px solid #ddd; /* Borda leve */
+  border-radius: 2px; /* Bordas arredondadas */
+  padding: 1rem; /* Padding interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.requester-info {
+  margin-bottom: 1.5rem; /* Espaço entre as seções */
+}
+
+.requester-info h3 {
+  font-size: 1em;
+}
+
+.requester-info h4 {
+  color: #333;
+  font-size: 1em;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+.requester-image {
+  width: 50px; /* Tamanho da imagem */
+  height: 50px; /* Tamanho da imagem */
+  border-radius: 50%; /* Imagem circular */
+  margin-right: 1rem; /* Espaço à direita da imagem */
+}
+
+.requester-details p {
+  margin: 0.3rem 0; /* Margens para os parágrafos */
+  font-size: 0.9rem; /* Tamanho da fonte */
+  color: #555; /* Cor do texto */
+  margin-left: 10px;
+}
+
+.requester-details p strong {
+  margin-right: 5px;
+}
+.options-container {
+  padding-top: 1rem; /* Padding interno */
+  border-top: 1px solid #ddd; /* Borda superior para separar */
+}
+
+.options-container h4 {
+  color: #333;
+  font-size: 1em;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+.options-list {
+  display: flex; /* Exibe os botões em linha */
+  flex-direction: column; /* Alinha os botões verticalmente */
+}
+
+.option-button {
+  background-color: #007bff; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  border: none; /* Remove bordas */
+  border-radius: 4px; /* Bordas arredondadas */
+  padding: 0.5rem 1rem; /* Padding interno */
+  margin: 0.5rem 0; /* Margem entre os botões */
+  cursor: pointer; /* Mão ao passar o mouse */
+  transition: background-color 0.3s; /* Transição suave na cor de fundo */
+}
+
+.option-button:hover {
+  background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+.form-group {
+  margin-bottom: 1rem; /* Espaço entre os grupos de formulário */
+}
+
+.styled-select {
+  width: 100%; /* Largura total do select */
+  padding: 0.5rem; /* Padding interno */
+  border: 1px solid #ccc; /* Borda leve */
+  border-radius: 4px; /* Bordas arredondadas */
+  background-color: #fff; /* Fundo branco */
+  color: #333; /* Cor do texto */
+  transition: border-color 0.3s; /* Transição suave na borda */
+}
+
+.styled-select:focus {
+  border-color: #007bff; /* Cor da borda ao focar */
+  outline: none; /* Remove o contorno padrão do foco */
+}
+
+.styled-select {
+  display: flex;
+  align-items: center; /* Alinha o quadrado e o select verticalmente */
+}
+
+.sla-option {
+  width: 20px; /* Largura do quadrado */
+  height: 20px; /* Altura do quadrado */
+  margin-right: 8px; /* Espaço entre o quadrado e o select */
+  border: 1px solid #ccc; /* Borda opcional */
+}
+/*  OPÇÕES CHAMADO LADO DIREITO FIM */

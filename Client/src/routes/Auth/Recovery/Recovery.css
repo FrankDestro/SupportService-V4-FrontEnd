@@ -1,0 +1,56 @@
+.recovery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #ececec, #f9f9f9); /* Gradiente suave */
+
+}
+
+.recovery-card {
+    width: 80%;
+    padding: 20px;
+    font-size: 16px;
+    height: 550px;
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: var(--bg-color);
+    border-top: 6px solid var(--border-color);
+    border-left: 1px solid var(--border-color-2);
+    border-radius: 7px;
+    border-right: 1px solid var(--border-color-2);
+    color: var(--text-color-title);
+    padding: 20px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-title-recovery {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-iconLock img {
+    width: 50px;
+    height: 50px;
+}
+
+.container-title-recovery {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-recovery-password {
+    font-size: 22px;
+}

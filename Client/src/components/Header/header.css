@@ -1,0 +1,177 @@
+.header {
+  background-color: var(--header-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 62px;
+  z-index: 1000;
+  border-bottom: 1px solid var(--color-border, #b1bdc8be);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.header-logo span {
+  margin-left: 5px;
+  font-weight: 400;
+}
+
+.header-center {
+  flex-grow: 1; /* Espaço vazio */
+}
+
+.header-user-icon {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-right: 40px;
+  font-size: 18px;
+  gap: 20px;
+  position: relative; /* Contexto de posicionamento */
+}
+
+.header-user-icon img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer; /* Mostra que o ícone é clicável */
+}
+
+.notification-menu {
+  position: absolute;
+  top: 50px; /* Alinha o menu logo abaixo do cabeçalho */
+  left: -20px; /* Ajusta para que o menu fique à esquerda do ícone, considerando a largura do menu */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease; /* Transições para opacidade e transformação */
+  opacity: 0; /* Começa invisível */
+  transform: translateY(-10px); /* Começa levemente acima da posição final */
+  visibility: hidden; /* Começa invisível */
+}
+
+.notification-menu.visible {
+  opacity: 1; /* Torna visível */
+  transform: translateY(0); /* Move para a posição original */
+  visibility: visible; /* Torna visível */
+}
+
+.notification-menu p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.notification-menu p:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.button-options {
+  border: 1px solid #b1bdc8a4;
+  padding: 2px 6px; /* Ajuste o padding para reduzir o tamanho do botão */
+  border-radius: 5px;
+  color: gray;
+  font-size: 14px; /* Ajuste o tamanho da fonte, se necessário */
+}
+
+.button-options:hover {
+  background-color: #b1bdc8a4;
+}
+
+.submenu {
+  position: absolute;
+  top: 50px; /* Alinha o menu logo abaixo do cabeçalho */
+  left: -140px; /* Ajusta para que o menu fique à esquerda do ícone, considerando a largura do menu */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0; /* Começa invisível */
+  transform: translateY(-10px); /* Começa levemente acima da posição final */
+  visibility: hidden; /* Começa invisível */
+}
+
+.submenu.visible {
+  opacity: 1; /* Torna visível */
+  transform: translateY(0); /* Move para a posição original */
+  visibility: visible; /* Torna visível */
+}
+
+.submenu p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.submenu p:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+/*submenu logout */
+.submenu-logout {
+  position: absolute;
+  top: 50px; /* Alinha o menu logo abaixo do cabeçalho */
+  left: 30px; /* Ajusta para que o menu fique à esquerda do ícone, considerando a largura do menu */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0; /* Começa invisível */
+  transform: translateY(-10px); /* Começa levemente acima da posição final */
+  visibility: hidden; /* Começa invisível */
+}
+
+.submenu-logout.visible {
+  opacity: 1; /* Torna visível */
+  transform: translateY(0); /* Move para a posição original */
+  visibility: visible; /* Torna visível */
+}
+
+.submenu-logout p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.submenu-logout p:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+/*submenu logout */
+
+.notification-badge {
+  position: absolute;
+  top: 5px; /* Ajusta a posição vertical da bolinha */
+  right: 105px; /* Ajusta a posição horizontal da bolinha */
+  width: 15px; /* Largura da bolinha */
+  height: 15px; /* Altura da bolinha */
+  background-color: red; /* Cor de fundo vermelha */
+  color: white; /* Cor do texto */
+  border-radius: 50%; /* Deixa a bolinha redonda */
+  display: flex;
+  align-items: center; /* Centraliza verticalmente o texto */
+  justify-content: center; /* Centraliza horizontalmente o texto */
+  font-size: 10px; /* Tamanho do texto */
+  font-weight: bold; /* Negrito para o texto */
+}

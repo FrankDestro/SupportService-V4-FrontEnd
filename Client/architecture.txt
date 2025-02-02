@@ -1,0 +1,201 @@
+supportService.v4
+│   src
+│   ├── assets
+│   │   ├── bell.png
+│   │   ├── calendario.png
+│   │   ├── editar.png
+│   │   ├── eye.png
+│   │   ├── help.png
+│   │   ├── kedb.png
+│   │   ├── lock.png
+│   │   ├── logo.svg
+│   │   ├── logo2.gif
+│   │   ├── logo3.gif
+│   │   ├── logo4.png
+│   │   ├── logout.png
+│   │   ├── natalia.jpg
+│   │   ├── react.svg
+│   │   ├── recovery.png
+│   │   └── settings.png
+│   ├── components
+│   │   ├── ActivityPanelSummaryTickets
+│   │   │   ├── ActivityPanelSummaryTickets.css
+│   │   │   └── ActivityPanelSummaryTickets.tsx
+│   │   ├── Button
+│   │   │   ├── button.css
+│   │   │   └── Button.tsx
+│   │   ├── Clock
+│   │   │   ├── Clock.css
+│   │   │   └── Clock.tsx
+│   │   ├── Dashboard
+│   │   │   ├── LineChartSupportByDay
+│   │   │   │   └── LineChartSupportByDay.tsx
+│   │   │   ├── PieChartByUrgency
+│   │   │   │   └── PieChartByUrgency.tsx
+│   │   │   ├── PieChartDonutByStatusTicket
+│   │   │   │   └── PieChartDonutByStatusTicket.tsx
+│   │   │   └── SlaIndicators
+│   │   │       ├── SlaIndicators.css
+│   │   │       └── SlaIndicators.tsx
+│   │   ├── DialogInfo
+│   │   │   ├── DialogInfo.css
+│   │   │   └── DialogInfo.tsx
+│   │   ├── Footer
+│   │   │   ├── footer.css
+│   │   │   └── footer.tsx
+│   │   ├── Header
+│   │   │   ├── header.css
+│   │   │   └── header.tsx
+│   │   ├── Header2
+│   │   │   ├── header.css
+│   │   │   └── index.tsx
+│   │   ├── InputCustom
+│   │   │   └── InputCustom.tsx
+│   │   ├── KEDBSearch
+│   │   │   ├── KEDBSearch.css
+│   │   │   └── KEDBSearch.tsx
+│   │   ├── ModalBootTest
+│   │   │   ├── DialogUserCreateModal2.css
+│   │   │   └── DialogUserCreateModal2.tsx
+│   │   ├── ModalUserUpdate
+│   │   │   ├── DialogUserUpdateModal..css
+│   │   │   └── DialogUserUpdateModal.tsx
+│   │   ├── NavbarLocation
+│   │   │   ├── NavbarLocation.css
+│   │   │   └── NavbarLocation.tsx
+│   │   ├── NoData
+│   │   │   └── NoData.tsx
+│   │   ├── Pagination
+│   │   │   ├── Pagination.css
+│   │   │   └── Pagination.tsx
+│   │   ├── SearchPanel
+│   │   │   ├── SearchPanel.css
+│   │   │   └── SearchPanel.tsx
+│   │   ├── SearchTicket
+│   │   │   ├── SearchTicket.css
+│   │   │   └── SearchTicket.tsx
+│   │   ├── SearchUser
+│   │   │   ├── SearchUser.css
+│   │   │   └── SearchUser.tsx
+│   │   ├── SettingsSidebar
+│   │   │   ├── SettingsSidebar.css
+│   │   │   └── SettingsSidebar.tsx
+│   │   ├── SideMenu
+│   │   │   ├── SideMenu.css
+│   │   │   └── SideMenu.tsx
+│   │   ├── TableKnowError
+│   │   │   ├── TableKnowError.css
+│   │   │   └── TableKnowError.tsx
+│   │   ├── TableTicket
+│   │   │   ├── TableTicket.css
+│   │   │   └── TableTicket.tsx
+│   │   ├── TableUsers
+│   │   │   ├── TableUsers.css
+│   │   │   └── TableUsers.tsx
+│   │   ├── TicketDetails
+│   │   │   ├── TicketDetails.css
+│   │   │   └── TicketDetails.tsx
+│   │   ├── TicketFormCreate
+│   │   │   ├── TicketFormCreate.css
+│   │   │   └── TicketFormCreate.tsx
+│   │   ├── TicketTabsContainer
+│   │   │   ├── TicketTabsContainer.css
+│   │   │   └── TicketTabsContainer.tsx
+│   │   └── UserFormCreate
+│   │       ├── UserFormCreate.css
+│   │       └── UserFormCreate.tsx
+│   ├── layout
+│   │   ├── MainLayout.css
+│   │   └── MainLayout.tsx
+│   ├── mocks
+│   │   ├── KnowErrosData.ts
+│   │   ├── mockTicketData.ts
+│   │   ├── mockTicketDetails.ts
+│   │   └── mockUserData.ts
+│   ├── models
+│   │   ├── activityPanelSummaryPercentTickets.ts
+│   │   ├── activityPanelSummaryTicketsByUrgency.ts
+│   │   ├── activityPanelSummaryTicketsDTO.ts
+│   │   ├── AttachmentsDTO.ts
+│   │   ├── CategoryTicketDTO.ts
+│   │   ├── DepartmentDTO.ts
+│   │   ├── knowErrorDTO.ts
+│   │   ├── Login.ts
+│   │   ├── RequesterDTO.ts
+│   │   ├── RoleDTO.ts
+│   │   ├── slaDTO.ts
+│   │   ├── solvingAreaDTO.ts
+│   │   ├── ticketDTO.ts
+│   │   ├── TicketHistoriesDTO.ts
+│   │   ├── ticketHistoryDTO.ts
+│   │   ├── typeRequestDTO.ts
+│   │   └── UserDTO.ts
+│   ├── repository
+│   │   └── access-token-repository.ts
+│   ├── routes
+│   │   ├── ActivityPainelPage
+│   │   │   ├── ActivityPainelPage.css
+│   │   │   └── ActivityPainelPage.tsx
+│   │   ├── Auth
+│   │   │   ├── Login
+│   │   │   │   ├── Login.css
+│   │   │   │   └── Login.tsx
+│   │   │   ├── Recovery
+│   │   │   │   ├── Recovery.css
+│   │   │   │   └── Recovery.tsx
+│   │   │   └── Auth.tsx
+│   │   ├── Dashboard
+│   │   │   └── Dashboard.tsx
+│   │   ├── Home
+│   │   │   ├── home.css
+│   │   │   └── home.tsx
+│   │   ├── knowErrorDbPage
+│   │   │   ├── KnowErrorDbPage.css
+│   │   │   └── KnowErrorDbPage.tsx
+│   │   ├── SettingPages
+│   │   │   ├── General Settings
+│   │   │   │   └── GeneralSettingsPage.tsx
+│   │   │   ├── ProfileSettings
+│   │   │   │   ├── ProfileSettingsPage.css
+│   │   │   │   └── ProfileSettingsPage.tsx
+│   │   │   └── SLA Settings
+│   │   │       ├── SlaSettingsPage.css
+│   │   │       └── SlaSettingsPage.tsx
+│   │   ├── SettingsLayout
+│   │   │   ├── SettingsLayout.css
+│   │   │   └── SettingsLayout.tsx
+│   │   ├── Test
+│   │   │   └── Test.tsx
+│   │   ├── TicketDetailsPage
+│   │   │   └── TicketDetailsPage.tsx
+│   │   ├── Tickets
+│   │   │   ├── tickets.css
+│   │   │   └── tickets.tsx
+│   │   └── Users
+│   │       ├── user.css
+│   │       └── user.tsx
+│   ├── Service
+│   │   ├── activityPanel-service.ts
+│   │   ├── attachment-service.ts
+│   │   ├── category-service.ts
+│   │   ├── department-service.ts
+│   │   ├── Kow-error-service.ts
+│   │   ├── login-service.ts
+│   │   ├── role-service.ts
+│   │   ├── sla-service.ts
+│   │   ├── solving-area.ts
+│   │   ├── ticket-history-service.ts
+│   │   ├── ticket-service.ts
+│   │   ├── type-request.ts
+│   │   └── user-service.ts
+│   ├── utils
+│   │   ├── apiService.ts
+│   │   ├── context-token.ts
+│   │   ├── forms.ts
+│   │   ├── functions.ts
+│   │   └── system.ts
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+│   architecture.txt

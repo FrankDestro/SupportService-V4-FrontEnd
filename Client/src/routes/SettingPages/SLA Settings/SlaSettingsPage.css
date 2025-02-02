@@ -1,0 +1,84 @@
+.container-settings-sla-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.container-settings-sla-form form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.container-settings-sla-form input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.container-settings-sla-form button {
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 5px;
+}
+
+.container-settings-sla {
+    width: 100%;
+}
+
+.container-settings-sla-content {
+    width: 100%;
+    max-height: 700px;
+    overflow: auto;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.container-settings-sla-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto;
+    height: 400px;
+    padding: 10px;
+}
+
+.container-settings-sla-list::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.container-settings-sla-list::-webkit-scrollbar-thumb {
+    background-color: #11344d;
+    border-radius: 5px;
+}
+
+.container-settings-sla-list::-webkit-scrollbar-thumb:hover {
+    background-color: #335577;
+}
+
+.container-settings-sla-list::-webkit-scrollbar-track {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+.content-settings-sla-item {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    width: 700px;
+    padding: 20px;
+}
+
+.content-settings-sla-item:hover {
+    transform: translateY(-5px);
+    border: 1px solid darkblue;
+}
