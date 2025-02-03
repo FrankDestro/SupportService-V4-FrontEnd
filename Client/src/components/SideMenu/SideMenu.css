@@ -16,7 +16,7 @@
 }
 
 .sideMenu.collapsed {
-  width: 150px;
+  width: 90px;
 }
 
 .button-collapse {
@@ -28,6 +28,10 @@
   border-radius: 50%;
   background-color: #b1bdc823;
   padding: 10px;
+}
+
+.button-collapse.collapsed {
+  left: 50%;
 }
 
 .container-menu {
@@ -118,9 +122,78 @@
   font-weight: 600;
   text-align: left;
   color: #e7eaee;
+  position: absolute;
 }
 
 .email {
   color: #e7eaee;
   font-size: 0.8rem;
+}
+
+.perfil-status-badge {
+  background-color: rgb(63, 179, 9);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 30px;
+  right: 25px;
+}
+
+/*COLLAPSED*/
+
+.container-menu-collapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 45px;
+  border-top: 1px solid #b1bdc883;
+}
+
+.link-collapsed {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px;
+  width: 40px;
+  font-size: 18px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.link-collapsed:hover {
+  background-color: #b1bdc823;
+  border-radius: 5px;
+  color: #fff;
+  border: 1px solid #b1bdc823;
+}
+
+.link-collapsed:hover h3 {
+  color: #fff;
+}
+
+.link-collapsed h3 {
+  margin: 0 0 0 10px;
+  color: #b1bdc886;
+  font-size: 14px;
+}
+
+.icon-collapsed {
+  color: #b1bdc886;
+  transition: color 0.3s ease;
+}
+
+.link-collapsed:hover .icon-collapsed {
+  color: #fff;
+}
+
+.link-collapsed.active .icon-collapsed {
+  color: #fff;
 }

@@ -81,6 +81,11 @@ function User() {
     });
   };
 
+
+  console.log("usuarios esta vindo?")
+  console.log(users)
+
+
   return (
     <div>
       <div className="container-base">

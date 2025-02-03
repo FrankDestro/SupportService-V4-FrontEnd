@@ -11,4 +11,8 @@ export type UserDTO = {
   solvingArea: SolvingAreaDTO;
   imgProfile: string;
   roles : RoleDTO[];
+  createdAt: string;
+  updatedAt: string;
+  createdBy: string;
+  updatedBy: string;
 };

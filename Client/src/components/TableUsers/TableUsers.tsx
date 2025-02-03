@@ -46,7 +46,7 @@ const TableUsers = ({ users }: TableUsersProps) => {
                 </span>
               </td>
               <td>{usuario.roles.map(roles => roles.authority)}</td>
-              <td>{usuario.createdByUserName}</td>
+              <td>{usuario.createdBy}</td>
               <td>
                 <span
                   style={functions.getBlockedStatusBadgeStyle(usuario.blocked)}

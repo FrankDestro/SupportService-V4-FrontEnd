@@ -9,7 +9,7 @@
 }
 
 .content.collapsed {
-  margin-left: 150px;
+  margin-left: 90px;
 }
 
 .main-content {
@@ -20,5 +20,5 @@
   box-sizing: border-box;
 }
 .footer.collapsed {
-  margin-left: 150px; /* Ajuste para o rodapé quando a sidebar estiver colapsada */
+  margin-left: 90px; /* Ajuste para o rodapé quando a sidebar estiver colapsada */
 }

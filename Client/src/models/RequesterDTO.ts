@@ -8,14 +8,16 @@ export type UserDTO = {
   lastName: string;
   email: string;
   imgProfile: string;
-  createdAt: string;
   contactNumber: string;
   blocked: boolean;
   statusUser : string;
-  createdByUserName: string;
   department: DepartmentDTO;
   solvingArea: SolvingAreaDTO;
   roles: RoleDTO[];
+  createdAt: string;
+  updatedAt: string;
+  createdBy: string;
+  updatedBy: string;
 };
 
 
