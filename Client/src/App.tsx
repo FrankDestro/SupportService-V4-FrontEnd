@@ -21,12 +21,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/auth" element={<Auth />}>
+          <Route path="/" element={<Auth />}>
             <Route index element={<Login />} />
             <Route path="recovery" element={<Recovery />} />
           </Route>
           <Route element={<MainLayout />}>
-            <Route index element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/ticket" element={<Ticket />} />
             <Route path="/auth" element={<Login />} />
             <Route path="/user" element={<User />} />

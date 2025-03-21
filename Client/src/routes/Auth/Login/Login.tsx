@@ -60,7 +60,7 @@ function Login() {
         .then((response) => {
           loginService.saveAccessToken(response.data.access_token);
           setContextTokenPayload(loginService.getAccessTokenPayload());
-          navigate("/");
+          navigate("/home");
         })
         .catch(() => {
           setSubmitResponseFail(true);

@@ -11,7 +11,7 @@ export function allTicketsRequest(
   typeRequest: string,
   categoryTicket: string,
   sla: string,
-  size = 11,
+  size = 16,
   sort = "registrationDate"
 ) {
   const config: AxiosRequestConfig = {

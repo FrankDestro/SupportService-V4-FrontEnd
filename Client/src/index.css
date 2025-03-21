@@ -306,15 +306,11 @@ th {
 /* Estilização Pagination */
 
 .container-pagination {
-  position: sticky;
-  /* Alinha o componente na parte inferior conforme rolagem */
-  bottom: 0;
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  background-color: #fff;
-  /* Opcional: cor de fundo para manter contraste */
+  justify-content: end;
+  
 }
-
 /* Estilização Pagination */
 
 /* Estilização do Spiner de Carregamento */

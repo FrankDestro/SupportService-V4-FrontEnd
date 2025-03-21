@@ -1,4 +1,6 @@
 import {
+  faAngleDown,
+  faAngleRight,
   faArrowLeft,
   faArrowRight,
   faChartPie,
@@ -30,6 +32,8 @@ const SideMenu: React.FC<SideMenuProps> = ({ isCollapsed, toggleSidebar }) => {
     });
   }, []);
 
+  const [isHomeOpen, setIsHomeOpen] = useState(false);
+
   return (
     <div className={`sideMenu ${isCollapsed ? "collapsed" : ""}`}>
       {!isCollapsed && <span className="title_sidebar_menu">Menu</span>}
@@ -57,7 +61,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ isCollapsed, toggleSidebar }) => {
       {isCollapsed ? (
         <div className="container-menu-collapsed">
           <Link
-            to="/"
+            to="/home"
             className="link-collapsed"
             data-tooltip-id="home"
             data-tooltip-content="Home"
@@ -116,10 +120,33 @@ const SideMenu: React.FC<SideMenuProps> = ({ isCollapsed, toggleSidebar }) => {
         </div>
       ) : (
         <div className="container-menu">
-          <Link to="/" className="link">
+          <Link
+            to="/home"
+            className="link"
+            onClick={() => setIsHomeOpen(!isHomeOpen)}
+          >
             <FontAwesomeIcon icon={faHome} className="icon" />
-            <h3>Home</h3>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              <h3>Home</h3>
+              <FontAwesomeIcon
+                icon={isHomeOpen ? faAngleDown : faAngleRight}
+                className="icon-arrow"
+                color=" #ffffff9d"
+              />
+            </div>
           </Link>
+          {isHomeOpen && (
+            <div className="container-submenu-link-home-sidebar">
+              <Link to="/home/option1">Option 1</Link>
+              <Link to="/home/option2">Option 2</Link>
+            </div>
+          )}
           <Link to="/ticket" className="link">
             <FontAwesomeIcon icon={faTicket} className="icon" />
             <h3>Ticket</h3>

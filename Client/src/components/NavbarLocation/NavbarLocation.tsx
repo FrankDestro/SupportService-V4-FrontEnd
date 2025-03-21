@@ -19,7 +19,7 @@ const NavbarLocation = () => {
 
   const getTitle = () => {
     switch (location.pathname) {
-      case "/":
+      case "/home":
         return { title: "Home | Panel", icon: faHome };
       case "/ticket":
         return { title: "Ticket", icon: faTicket };

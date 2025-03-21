@@ -197,3 +197,32 @@
 .link-collapsed.active .icon-collapsed {
   color: #fff;
 }
+
+
+.container-submenu-link-home-sidebar { 
+  display: flex;
+  flex-direction: column;
+  padding: 5px 5px 5px 30px;
+  
+}
+
+.container-submenu-link-home-sidebar a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff9d;
+  padding: 3px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.container-submenu-link-home-sidebar a:hover{
+  background-color: #b1bdc823;
+  border-radius: 5px;
+  color: #fff;
+  border: 1px solid #b1bdc823;
+}
+
+.icon-arrow:hover {
+  color: #fff;
+}

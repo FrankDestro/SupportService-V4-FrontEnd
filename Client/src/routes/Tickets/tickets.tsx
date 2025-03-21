@@ -105,21 +105,24 @@ function Ticket() {
         <NoData icon={faTicket} message="Não foi encontrado ticket" />
       ) : (
         <>
-          <TicketTabsContainer
-            tickets={tickets}
-            onActiveTabChange={handleActiveTabChange}
-          />
-          <div className="container-pagination">
-            {showPagination && (
-              <Pagination
-                currentPage={queryParams.page}
-                totalPages={totalPages}
-                onPageChange={handlePageChange}
-              />
-            )}
-          </div>
+
+<div style={{ display: "flex", flexDirection: "column", }}>
+  <div style={{  flexGrow: 1 }}>
+    <TicketTabsContainer tickets={tickets} onActiveTabChange={handleActiveTabChange} />
+  </div>
+
+  <div className="container-pagination">
+    {showPagination && (
+      <Pagination currentPage={queryParams.page} totalPages={totalPages} onPageChange={handlePageChange} />
+    )}
+  </div>
+</div>
+
+       
+          
         </>
       )}
+    
     </div>
   );
 }
