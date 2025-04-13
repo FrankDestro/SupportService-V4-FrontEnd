@@ -11,3 +11,7 @@ export function addTicketHistoryNote(obj: TicketHistoryDTO) {
   };
   return requestBackendConfig(config);
 }
+
+export function getAllHistoryById(id: number) {
+  return requestBackendConfig({ url: `/ticketHistory/${id}?page=0&size=10` });
+}

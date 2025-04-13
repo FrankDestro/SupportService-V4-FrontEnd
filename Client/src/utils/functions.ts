@@ -174,6 +174,61 @@ export const getStatusKnowErrorsBadgeStyle = (
   }
 };
 
+export const getSeverityBadgeStyle = (
+  severity: string
+): React.CSSProperties => {
+  switch (severity.toLowerCase()) {
+    case "baixa":
+      return {
+        backgroundColor: "#8DD600", // Verde claro
+        color: "white",
+        padding: "4px 8px",
+        borderRadius: "4px",
+        fontSize: "12px",
+      };
+    case "média":
+      return {
+        backgroundColor: "#FFC107", // Amarelo
+        color: "white",
+        padding: "4px 8px",
+        borderRadius: "4px",
+        fontSize: "12px",
+      };
+    case "alta":
+      return {
+        backgroundColor: "#FF9800", // Laranja
+        color: "white",
+        padding: "4px 8px",
+        borderRadius: "4px",
+        fontSize: "12px",
+      };
+    case "urgente":
+      return {
+        backgroundColor: "#F44336", // Vermelho escuro
+        color: "white",
+        padding: "4px 8px",
+        borderRadius: "4px",
+        fontSize: "12px",
+      };
+    case "crítica":
+      return {
+        backgroundColor: "#9C27B0", // Roxo
+        color: "white",
+        padding: "4px 8px",
+        borderRadius: "4px",
+        fontSize: "12px",
+      };
+    default:
+      return {
+        backgroundColor: "#E0E0E0", // Cinza padrão
+        color: "#333",
+        padding: "4px 8px",
+        borderRadius: "4px",
+        fontSize: "12px",
+      };
+  }
+};
+
 
 export function calculateRemainingTime(dueDate: string): string {
   // Converte a string de data fornecida para um objeto Date

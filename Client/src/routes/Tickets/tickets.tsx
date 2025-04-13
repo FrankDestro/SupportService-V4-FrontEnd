@@ -52,8 +52,8 @@ function Ticket() {
         const { totalPages, content } = response.data;
         setTickets(content);
         setTotalPages(totalPages);
-      })
-      // .finally(() => setIsLoading(false))
+      });
+    // .finally(() => setIsLoading(false))
   }, [queryParams, showPagination]);
 
   function handleSearch(
@@ -96,7 +96,7 @@ function Ticket() {
       <div className="container-base">
         <SearchTicker onSearch={handleSearch} />
       </div>
-      {isLoading ? ( // Exibe o spinner durante o carregamento
+      {isLoading ? (
         <div className="spinner-container">
           <div className="spinner-border" role="status"></div>
           <span>Carregando....</span>
@@ -105,24 +105,26 @@ function Ticket() {
         <NoData icon={faTicket} message="Não foi encontrado ticket" />
       ) : (
         <>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ flexGrow: 1 }}>
+              <TicketTabsContainer
+                tickets={tickets}
+                onActiveTabChange={handleActiveTabChange}
+              />
+            </div>
 
-<div style={{ display: "flex", flexDirection: "column", }}>
-  <div style={{  flexGrow: 1 }}>
-    <TicketTabsContainer tickets={tickets} onActiveTabChange={handleActiveTabChange} />
-  </div>
-
-  <div className="container-pagination">
-    {showPagination && (
-      <Pagination currentPage={queryParams.page} totalPages={totalPages} onPageChange={handlePageChange} />
-    )}
-  </div>
-</div>
-
-       
-          
+            <div className="container-pagination">
+              {showPagination && (
+                <Pagination
+                  currentPage={queryParams.page}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              )}
+            </div>
+          </div>
         </>
       )}
-    
     </div>
   );
 }

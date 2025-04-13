@@ -8,4 +8,5 @@ export type AttachmentsDTO = {
   type: string;
   ticketId: number;
   user: UserDTO;
+  sizeMB : number;
 };

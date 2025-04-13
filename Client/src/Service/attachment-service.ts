@@ -11,3 +11,8 @@ export function addAttachments(obj: AttachmentsDTO) {
   };
   return requestBackendConfig(config);
 }
+
+
+export function getAllAttachmentById(id: number) {
+  return requestBackendConfig({ url: `/attachments/${id}?page=0&size=10` });
+}

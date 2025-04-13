@@ -120,11 +120,12 @@ function TicketTabsContainer({ tickets, onActiveTabChange }: TicketsProps) {
               }
             >
               <div className="table-tickets-container">
-                {tab.ticket && "ticketHistories" in tab.ticket ? (
+                {/* {tab.ticket && "ticketHistories" in tab.ticket ? ( */}
                   <TicketDetailsPage ticket={tab.ticket as TicketDTO} />
-                ) : (
+                {/* ) : (
                   <p>Carregando informações do ticket...</p>
-                )}
+                  
+                )} */}
               </div>
             </Tab>
           ) : null

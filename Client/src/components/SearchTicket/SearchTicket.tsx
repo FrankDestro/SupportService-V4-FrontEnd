@@ -191,7 +191,6 @@ function SearchTicker({ onSearch }: Props) {
         </div>
       </div>
 
-
       <div className="container-checkbox-search-ticket">
         <div className="container-form-checkbox">
           <div className="form-group-checkbox">
@@ -212,9 +211,7 @@ function SearchTicker({ onSearch }: Props) {
               // checked={formData.visibleToRequester}
               // onChange={handleChange}
             />
-            <label htmlFor="visibleToRequester">
-             Meu tickets abertos
-            </label>
+            <label htmlFor="visibleToRequester">Meu tickets abertos</label>
           </div>
           <div className="form-group-checkbox">
             <input
@@ -223,14 +220,10 @@ function SearchTicker({ onSearch }: Props) {
               // checked={formData.visibleToRequester}
               // onChange={handleChange}
             />
-            <label htmlFor="visibleToRequester">
-             Tickets da minha área
-            </label>
+            <label htmlFor="visibleToRequester">Tickets da minha área</label>
           </div>
         </div>
       </div>
-
-
     </form>
   );
 }

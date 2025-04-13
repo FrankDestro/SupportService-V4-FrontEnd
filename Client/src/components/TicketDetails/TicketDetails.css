@@ -252,18 +252,6 @@
   box-shadow: none;
 }
 
-.container-form-checkbox {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 20px;
-}
-
-.form-group-checkbox {
-  display: flex;
-  gap: 10px;
-}
-
 /*  ANDAMENTO DO CHAMADO CENTRO FIM */
 
 /*  OPÇÕES CHAMADO LADO DIREITO INICIO */

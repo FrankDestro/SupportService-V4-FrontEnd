@@ -1,0 +1,82 @@
+.aba-andamento {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.aba-andamento h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.comentarios {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comentario {
+  display: flex;
+  gap: 15px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  align-items: center;
+}
+
+.comentario img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.conteudo {
+  flex: 1;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.usuario-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.detalhes-user {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.cabecalho strong {
+  color: #222;
+  font-weight: 600;
+}
+
+.data {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+.descricao {
+  margin: 0;
+  color: #444;
+  font-size: 1rem;
+}
+
+.tag-status {
+  color: #2196f3;
+  font-weight: bold;
+  background-color: #e3f2fd;
+  padding: 4px 6px;
+  border-radius: 4px;
+  display: inline-block;
+}
