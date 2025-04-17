@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { differenceInDays, differenceInHours, differenceInMinutes, parseISO } from "date-fns";
 import { UserDTO } from "../models/RequesterDTO";
+import { FileType } from "../models/EnumTypes";
 
 
 export const getStatusUserBadgeStyle = (status: string): React.CSSProperties => {
@@ -332,4 +333,28 @@ export function toUserDTO(formData: any): UserDTO {
   }
 
   return data;
+}
+
+
+export function getFileType(mimeType: string): FileType | null {
+  switch (mimeType) {
+    case "image/png":
+      return FileType.PNG;
+    case "application/pdf":
+      return FileType.PDF;
+    case "application/msword":
+      return FileType.DOC;
+    case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+      return FileType.DOCX;
+    case "image/gif":
+      return FileType.GIF;
+    case "text/plain":
+      return FileType.TXT;
+    case "image/jpeg":
+      return FileType.JPEG;
+    case "application/octet-stream": // link ou outro tipo genérico
+      return FileType.LINK;
+    default:
+      return null; // Ou você pode lançar um erro aqui se o tipo for inválido
+  }
 }

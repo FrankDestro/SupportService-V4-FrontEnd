@@ -1,8 +1,8 @@
 import { AxiosRequestConfig } from "axios";
-import { AttachmentsDTO } from "../models/AttachmentsDTO";
+import { AttachmentsDTOWithoutMetadata } from "../models/AttachmentsDTO";
 import { requestBackendConfig } from "../utils/apiService";
 
-export function addAttachments(obj: AttachmentsDTO) {
+export function addAttachments(obj: AttachmentsDTOWithoutMetadata) {
   const config: AxiosRequestConfig = {
     method: "POST",
     url: "/attachments/add",
@@ -14,5 +14,5 @@ export function addAttachments(obj: AttachmentsDTO) {
 
 
 export function getAllAttachmentById(id: number) {
-  return requestBackendConfig({ url: `/attachments/${id}?page=0&size=10` });
+  return requestBackendConfig({ url: `/attachments/${id}` });
 }

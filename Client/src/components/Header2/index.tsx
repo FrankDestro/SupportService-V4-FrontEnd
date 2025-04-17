@@ -9,12 +9,17 @@ import {
 } from "react-icons/fa";
 import calendarioIcon from "../../assets/logo.svg";
 import "./header.css";
+import { useLocation } from "react-router-dom";
+
 
 function Header2() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const notificationRef = useRef<HTMLDivElement>(null);
   const settingsRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  const isLoginPage = location.pathname === "/";
 
   const handleNotificationClick = () => {
     setShowNotifications((prev) => !prev);
@@ -66,11 +71,12 @@ function Header2() {
 
   return (
     <header className="header">
-      <div className="logo">
-        <img src={calendarioIcon} alt="CalendarioIcon" />
-        <h1>Support Service</h1>
-      </div>
-
+    <div className="logo">
+      <img src={calendarioIcon} alt="CalendarioIcon" />
+      <h1>Support Service</h1>
+    </div>
+  
+    {!isLoginPage && (
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         <nav className="nav" style={{ display: "flex", alignItems: "center" }}>
           <ul>
@@ -79,7 +85,7 @@ function Header2() {
             </li>
           </ul>
         </nav>
-
+  
         {/* Notificações */}
         <div
           className="notifications"
@@ -110,7 +116,7 @@ function Header2() {
             </div>
           )}
         </div>
-
+  
         {/* Configurações */}
         <div
           className="settings"
@@ -137,7 +143,9 @@ function Header2() {
           )}
         </div>
       </div>
-    </header>
+    )}
+  </header>
+  
   );
 }
 

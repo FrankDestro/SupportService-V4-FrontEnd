@@ -34,18 +34,27 @@ const TableUsers = ({ users }: TableUsersProps) => {
             <tr key={usuario.id}>
               <td>{usuario.id}</td>
               <td>
-                <img src={usuario.imgProfile} alt={`Avatar ${usuario.imgProfile}`} />
+                <img
+                  src={usuario.imgProfile}
+                  alt={`Avatar ${usuario.imgProfile}`}
+                />
               </td>
-              <td>{usuario.department.description}</td>
-              <td>{usuario.solvingArea.name}</td>
-              <td>{usuario.firstName} {usuario.lastName}</td>
+              <td>Departamento descricao</td>
+              <td>Area solucionadora descricao</td>
+              {/* <td>{usuario.department.description}</td>
+              <td>{usuario.solvingArea.name}</td> */}
+              <td>
+                {usuario.firstName} {usuario.lastName}
+              </td>
               <td>{usuario.email}</td>
               <td>
-                <span style={functions.getStatusUserBadgeStyle(usuario.statusUser)}>
+                <span
+                  style={functions.getStatusUserBadgeStyle(usuario.statusUser)}
+                >
                   {usuario.statusUser}
                 </span>
               </td>
-              <td>{usuario.roles.map(roles => roles.authority)}</td>
+              <td>{usuario.roles.map((roles) => roles.authority)}</td>
               <td>{usuario.createdBy}</td>
               <td>
                 <span

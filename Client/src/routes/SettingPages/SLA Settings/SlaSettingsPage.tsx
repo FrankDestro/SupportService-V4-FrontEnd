@@ -30,7 +30,7 @@ function SlaSettings() {
       .catch((e) => {
         console.error("Erro ao buscar os SLAs:", e);
       });
-  }, [sla]);
+  }, []);
 
   const handleCardClick = (item: SLADTO) => {
     setSelectedSla(item);

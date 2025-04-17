@@ -51,3 +51,52 @@
 .download-link:hover {
   color: #0056b3;
 }
+
+.upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.upload-label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #444;
+  cursor: pointer;
+}
+
+.upload-input {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+.upload-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.upload-input::before {
+  content: "Escolher arquivo";
+  display: inline-block;
+  background: #1976d2;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.upload-input:hover::before {
+  background: #1565c0;
+}
+
+.file-name {
+  font-size: 14px;
+  color: #555;
+}

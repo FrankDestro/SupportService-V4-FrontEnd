@@ -15,24 +15,23 @@ interface Props {
 
 const TicketDetails2: React.FC<Props> = ({ ticket }) => {
   const [abaAtiva, setAbaAtiva] = useState<Aba>("detalhes");
-
   const [andamentos, setAndamentos] = useState<any[]>([]);
   const [anexos, setAnexos] = useState<any[]>([]);
   const [carregandoAndamentos, setCarregandoAndamentos] = useState(false);
 
   useEffect(() => {
-    if (abaAtiva === "andamento" && andamentos.length === 0) {
+    if (abaAtiva === "andamento") {
       setCarregandoAndamentos(true);
       getAllHistoryById(ticket.id)
         .then((response) => {
-          setAndamentos(response.data.content);
+          setAndamentos(response.data);
         })
         .catch((error) => {
           console.error("Erro ao buscar histórico de andamento:", error);
         })
         .finally(() => setCarregandoAndamentos(false));
     }
-  }, [abaAtiva, ticket.id, andamentos.length]);
+  }, [abaAtiva, ticket.id]);
 
 
   useEffect(() => {
@@ -40,14 +39,14 @@ const TicketDetails2: React.FC<Props> = ({ ticket }) => {
       setCarregandoAndamentos(true);
       getAllAttachmentById(ticket.id)
         .then((response) => {
-          setAnexos(response.data.content);
+          setAnexos(response.data);
         })
         .catch((error) => {
           console.error("Erro ao buscar histórico de andamento:", error);
         })
         .finally(() => setCarregandoAndamentos(false));
     }
-  }, [abaAtiva, ticket.id, anexos.length]);
+  }, [abaAtiva, ticket.id]);
 
   return (
     <div className="chamado-container">
@@ -85,9 +84,8 @@ const TicketDetails2: React.FC<Props> = ({ ticket }) => {
             {carregandoAndamentos ? (
               <p>Carregando andamento...</p>
             ) : (
-              <AndamentoTab andamentos={andamentos} />
+              <AndamentoTab andamentos={andamentos} idTicket={ticket.id} />
             )}
-            <textarea placeholder="Adicionar nota..." />
           </div>
         )}
         {abaAtiva === "anexo" && (
@@ -96,9 +94,8 @@ const TicketDetails2: React.FC<Props> = ({ ticket }) => {
             {carregandoAndamentos ? (
               <p>Carregando andamento...</p>
             ) : (
-              <AnexoTab anexos={anexos}/>
+              <AnexoTab anexos={anexos} idTicket={ticket.id}/>
             )}
-            <button className="btn-anexo">Adicionar Anexo</button>
           </div>
         )}
       </div>

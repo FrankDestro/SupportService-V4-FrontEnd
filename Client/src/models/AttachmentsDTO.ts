@@ -8,5 +8,8 @@ export type AttachmentsDTO = {
   type: string;
   ticketId: number;
   user: UserDTO;
-  sizeMB : number;
+  sizeInMB : number;
 };
+
+
+export type AttachmentsDTOWithoutMetadata = Omit<AttachmentsDTO, 'id' | 'registrationDate' | 'user'>;

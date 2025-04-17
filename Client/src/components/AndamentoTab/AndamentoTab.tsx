@@ -1,139 +1,244 @@
-import React from "react";
-import "./AndamentoTab.css";
+import {
+  faCalendarAlt,
+  faCheckCircle,
+  faSave,
+} from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useRef, useState } from "react";
 import { TicketHistoryDTO } from "../../models/ticketHistoryDTO";
-
-type Comment = {
-  id: number;
-  user: {
-    id: number;
-    name: string;
-    imageUrl: string;
-    email: string;
-    department: string | null;
-  };
-  description: string;
-  registrationDate: string;
-  systemGenerated: boolean;
-  noteType: string;
-};
-
-const mockComments: Comment[] = [
-  {
-    id: 1,
-    user: {
-      id: 101,
-      name: "João Silva",
-      email: "joao.solicitante@empresa.com",
-      department: "Atendimento",
-      imageUrl: "https://i.pravatar.cc/150?img=3",
-    },
-    description: "Pedido encaminhado para o setor de separação.",
-    registrationDate: "2024-07-01T10:15:00",
-    systemGenerated: true,
-    noteType: "COMMENT",
-  },
-  {
-    id: 2,
-    user: {
-      id: 102,
-      name: "Maria Oliveira",
-      email: "maria.oliveira@empresa.com",
-      department: "Desenvolvimento",
-      imageUrl: "https://i.pravatar.cc/150?img=5",
-    },
-    description: "Produto separado e pronto para envio.",
-    registrationDate: "2024-07-02T14:30:00",
-    systemGenerated: true,
-    noteType: "COMMENT",
-  },
-  {
-    id: 3,
-    user: {
-      id: 103,
-      name: "Carlos Pereira",
-      email: "carlos.pereira@empresa.com",
-      department: "Logística",
-      imageUrl: "https://i.pravatar.cc/150?img=8",
-    },
-    description: "Pedido saiu para entrega com a transportadora.",
-    registrationDate: "2024-07-03T09:00:00",
-    systemGenerated: true,
-    noteType: "COMMENT",
-  },
-  {
-    id: 99,
-    user: {
-      id: 103,
-      name: "Carlos Pereira",
-      email: "carlos.pereira@empresa.com",
-      department: "Logística",
-      imageUrl: "https://i.pravatar.cc/150?img=8",
-    },
-    description: "Status alterado para: Em andamento",
-    registrationDate: "2025-04-10T10:45:00",
-    systemGenerated: true,
-    noteType: "STATUS_CHANGE",
-  },
-];
-
+import * as TicketHistoryNote from "../../Service/ticket-history-service";
+import { toValuesTicket } from "../../utils/functions";
+import Button from "../Button/Button";
+import DialogInfo from "../DialogInfo/DialogInfo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./AndamentoTab.css";
 
 interface Props {
   andamentos: TicketHistoryDTO[];
+  idTicket: number;
 }
 
-const AndamentoTab: React.FC<Props> = ({ andamentos }) => {
+const AndamentoTab: React.FC<Props> = ({ andamentos, idTicket }) => {
+  const comentariosEndRef = useRef<HTMLDivElement | null>(null);
+
+  const [andamentos2, setAndamentos] = useState<TicketHistoryDTO[]>([]);
+  const [formData, setFormData] = useState({
+    description: "",
+    annotationPublic: false,
+    visibleToRequester: false,
+  });
+  const [dialogInfoData, setDialogInfoData] = useState({
+    visible: false,
+    message: "Operação com Sucesso!",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value, type } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]:
+        type === "checkbox" && e.target instanceof HTMLInputElement
+          ? e.target.checked
+          : value,
+    }));
+  };
+
+  const fetchAndamentos = async () => {
+    try {
+      const response = await TicketHistoryNote.getAllHistoryById(idTicket);  // Busca os andamentos
+      setAndamentos(response.data);
+    } catch (error) {
+      console.log("Erro ao buscar os andamentos:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchAndamentos();
+  }, [idTicket]);  // Recarrega os dados ao mudar o idTicket
+
+  const handleSubmitNote = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form Data Submitted:", formData);
+
+    const noteType = 0;
+    const ticketId = idTicket;
+
+    const dataToSend = {
+      ...formData,
+      noteType,
+      ticketId,
+    };
+
+    const requestBody = toValuesTicket(dataToSend);
+    console.log(requestBody);
+
+    TicketHistoryNote.addTicketHistoryNote(requestBody)
+      .then((response) => {
+        console.log(response.data.id);
+        fetchAndamentos();  // Atualiza a lista de andamentos após a submissão
+
+        setDialogInfoData({
+          visible: true,
+          message: "Nota incluída com sucesso",
+        });
+
+        setFormData({
+          description: "",
+          annotationPublic: false,
+          visibleToRequester: false,
+        });
+      })
+      .catch((e) => {
+        console.log(e + "Erro ao gravar uma nota");
+      });
+  };
+
+  const handleDialogInfoClose = () => {
+    setDialogInfoData({ ...dialogInfoData, visible: false });
+  };
+
+  useEffect(() => {
+    if (comentariosEndRef.current) {
+      comentariosEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [andamentos2]);
+
+  const groupByDate = (andamentos: TicketHistoryDTO[]) => {
+    const grouped: { [date: string]: TicketHistoryDTO[] } = {};
+
+    andamentos.forEach((andamento) => {
+      const date = new Date(andamento.registrationDate).toLocaleDateString("pt-BR");
+      if (!grouped[date]) {
+        grouped[date] = [];
+      }
+      grouped[date].push(andamento);
+    });
+
+    return grouped;
+  };
+
+  const andamentosAgrupados = groupByDate(andamentos2);
+
   return (
-    <section className="aba-andamento">
-      <div className="comentarios">
-        {andamentos.map((andamento) => (
-          <div key={andamento.id} className="comentario">
-            <img
-              src={andamento.user.imgProfile}
-              alt={`Foto de ${andamento.user.firstName}`}
-            />
-            <div className="conteudo">
-              <div className="cabecalho">
-                <div className="usuario-info">
-                  <strong>{andamento.user.firstName}</strong>
-                  <div className="detalhes-user">
-                    <span>{andamento.user.email}</span>
-                    {andamento.user.department && (
-                      <span> • {andamento.user.department.description}</span>
-                    )}
+    <>
+      <section className="aba-andamento">
+        <div className="comentarios">
+          {Object.entries(andamentosAgrupados).map(([data, itensDoDia]) => (
+            <React.Fragment key={data}>
+              <div className="divisor-data">
+                <FontAwesomeIcon
+                  icon={faCalendarAlt}
+                  style={{ marginRight: "8px", color: "#888" }}
+                />
+                {data}
+              </div>
+
+              {itensDoDia.map((andamento) => (
+                <div key={andamento.id} className="comentario">
+                  <img
+                    src={andamento.user.imgProfile}
+                    alt={`Foto de ${andamento.user.firstName}`}
+                  />
+                  <div className="conteudo">
+                    <div className="cabecalho">
+                      <div className="usuario-info">
+                        <strong>{andamento.user.firstName}</strong>
+                        <div className="detalhes-user">
+                          <span>{andamento.user.email}</span>
+                          {andamento.user.department && (
+                            <span> • {andamento.user.department.description}</span>
+                          )}
+                        </div>
+                      </div>
+                      <span className="data-registro">
+                        {new Date(andamento.registrationDate).toLocaleString("pt-BR", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </span>
+                    </div>
+                    <p className="descricao">
+                      {andamento.systemGenerated && andamento.noteType === "STATUS_CHANGE" ? (
+                        <span className="tag-status">{andamento.description}</span>
+                      ) : andamento.noteType === "OBSERVATION" ? (
+                        <>
+                          <span className="tag-obs">Observação: </span>
+                          {andamento.description}
+                        </>
+                      ) : (
+                        andamento.description
+                      )}
+                    </p>
                   </div>
                 </div>
-                <span className="data">
-                  {new Date(andamento.registrationDate).toLocaleString(
-                    "pt-BR",
-                    {
-                      day: "2-digit",
-                      month: "2-digit",
-                      year: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    }
-                  )}
-                </span>
-              </div>
-              <p className="descricao">
-                {andamento.systemGenerated &&
-                andamento.noteType === "STATUS_CHANGE" ? (
-                  <span className="tag-status">{andamento.description}</span>
-                ) : andamento.noteType === "OBSERVATION" ? (
-                  <>
-                    <span className="tag-obs">Observação: </span>
-                    {andamento.description}
-                  </>
-                ) : (
-                  andamento.description
-                )}
-              </p>
-              <p>{andamento.annotationPublic}</p>
+              ))}
+            </React.Fragment>
+          ))}
+          <div ref={comentariosEndRef} />
+        </div>
+      </section>
+
+      <form onSubmit={handleSubmitNote}>
+        <div className="container-adicionar-notas">
+          <textarea
+            placeholder="Adicionar nota..."
+            value={formData.description}
+            onChange={handleChange}
+            rows={4}
+            id="description"
+          />
+
+          <div className="container-form-checkbox">
+            <div className="form-group-checkbox">
+              <input
+                type="checkbox"
+                name="annotationPublic"
+                id="annotationPublic"
+                checked={formData.annotationPublic}
+                onChange={handleChange}
+              />
+              <label htmlFor="annotationPublic">Torne a anotação pública</label>
+            </div>
+
+            <div className="form-group-checkbox">
+              <input
+                type="checkbox"
+                id="visibleToRequester"
+                checked={formData.visibleToRequester}
+                onChange={handleChange}
+              />
+              <label htmlFor="visibleToRequester">Visível para o solicitante</label>
             </div>
           </div>
-        ))}
-      </div>
-    </section>
+
+          <div className="container-button-adicionar-notas">
+            <Button
+              text="Salvar Nota"
+              icon={faSave}
+              background="#11344d"
+              hoverColor="#335577"
+              type="submit"
+              borderRadius="5px"
+            />
+          </div>
+
+          {dialogInfoData.visible && (
+            <DialogInfo
+              IconColor="#3a7e24"
+              ButtonColor="#3a7e24"
+              ButtonHoverColor="#70a94a"
+              Icon={faCheckCircle}
+              message={dialogInfoData.message}
+              onDialogClose={handleDialogInfoClose}
+            />
+          )}
+        </div>
+      </form>
+    </>
   );
 };
 

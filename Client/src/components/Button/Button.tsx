@@ -14,7 +14,7 @@ type Props = {
   height?: string;
   width?: string;
   type?: "submit" | "reset" | "button" | undefined;
-  isLoading?: boolean; // Nova propriedade opcional para o spinner
+  isLoading?: boolean;
 };
 
 function Button({
@@ -27,7 +27,7 @@ function Button({
   height = "auto",
   width = "auto",
   type = "button",
-  isLoading = false, // Valor padrão de isLoading é false
+  isLoading = false, 
 }: Props) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -44,7 +44,7 @@ function Button({
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        disabled={isLoading} // Desabilita o botão quando isLoading for true
+        disabled={isLoading} 
       >
         {isLoading ? (
           <div className="container-spiner-button-login">

@@ -1,6 +1,6 @@
 .aba-andamento {
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #faf6f6;
   border-radius: 10px;
   max-height: 500px;
   overflow-y: auto;
@@ -61,9 +61,9 @@
   font-weight: 600;
 }
 
-.data {
-  font-size: 0.875rem;
-  color: #777;
+.data-registro {
+  font-size: 1rem;
+  color: #20221f;
 }
 
 .descricao {
@@ -80,3 +80,59 @@
   border-radius: 4px;
   display: inline-block;
 }
+.container-adicionar-notas {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid rgb(221, 215, 215); 
+  margin-top: 10px;
+}
+
+.container-adicionar-notas textarea {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  resize: none;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-adicionar-notas textarea:focus {
+  border: 1px solid #007BFF;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.container-button-adicionar-notas {
+  display: flex;
+  justify-content: end;
+}
+
+.divisor-data {
+  text-align: center;
+  margin: 2rem 0;
+  font-weight: 500;
+  color: #444;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: none;
+  border-right: none;
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  background-color: #eeeff0;
+}
+
+
+
