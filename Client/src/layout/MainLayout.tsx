@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Footer from "../components/Footer/footer";
-import Header2 from "../components/Header2";
-import NavbarLocation from "../components/NavbarLocation/NavbarLocation";
-import SideMenu from "../components/SideMenu/SideMenu";
+import Footer from "../Components/shared/Footer/footer";
+import Header2 from "../Components/shared/Header";
+import NavbarLocation from "../Components/shared/NavbarLocation/NavbarLocation";
 import "./MainLayout.css";
+import SideMenu from "../Components/shared/SideMenu/SideMenu";
 
 function MainLayout() {
   const [isCollapsed, setIsCollapsed] = useState(false);

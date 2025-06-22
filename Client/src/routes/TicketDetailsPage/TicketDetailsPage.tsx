@@ -1,4 +1,4 @@
-import TicketDetails2 from "../../components/TicketDetais2/TicketDetails2";
+import TicketDetails from "../../Modules/TicketDetais/TicketDetails";
 import { TicketDTO } from "../../models/ticketDTO";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 function TicketDetailsPage({ ticket }: Props) {
   return (
     <div>
-     <TicketDetails2 ticket={ticket} />
+     <TicketDetails ticket={ticket} />
     </div>
   )
 }

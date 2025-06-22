@@ -1,10 +1,9 @@
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import TicketTabsContainer from "../../components/TicketTabsContainer/TicketTabsContainer";
-import NoData from "../../components/NoData/NoData";
-import Pagination from "../../components/Pagination/Pagination";
-import SearchTicker from "../../components/SearchTicket/SearchTicket";
+import NoData from "../../Components/NoData/NoData";
+import SearchTicker from "../../Components/SearchTicket/SearchTicket";
 import { TicketSimpleDTO } from "../../models/ticketDTO";
+import TicketTabsContainer from "../../Modules/TicketTabsContainer/TicketTabsContainer";
 import * as ticketService from "../../Service/ticket-service";
 
 type QueryParams = {
@@ -35,8 +34,6 @@ function Ticket() {
   });
 
   useEffect(() => {
-    // setIsLoading(true);
-
     ticketService
       .allTicketsRequest(
         queryParams.page,
@@ -53,7 +50,6 @@ function Ticket() {
         setTickets(content);
         setTotalPages(totalPages);
       });
-    // .finally(() => setIsLoading(false))
   }, [queryParams, showPagination]);
 
   function handleSearch(
@@ -110,17 +106,10 @@ function Ticket() {
               <TicketTabsContainer
                 tickets={tickets}
                 onActiveTabChange={handleActiveTabChange}
+                totalPages={totalPages}
+                currentPage={queryParams.page}
+                onPageChange={handlePageChange}
               />
-            </div>
-
-            <div className="container-pagination">
-              {showPagination && (
-                <Pagination
-                  currentPage={queryParams.page}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                />
-              )}
             </div>
           </div>
         </>

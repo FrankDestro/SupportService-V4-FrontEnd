@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Header2 from "../../components/Header2";
-import Footer from "../../components/Footer/footer";
+import Header2 from "../../Components/shared/Header";
+import Footer from "../../Components/shared/Footer/footer";
 
 function Auth() {
   return (

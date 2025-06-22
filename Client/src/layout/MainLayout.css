@@ -1,9 +1,9 @@
 .content {
-  margin-left: 250px; /* Espaço reservado para a sidebar */
+  margin-left: 250px; 
   padding: 20px;
   flex-grow: 1;
-  background-color: var(--content-bg, #ffffff93);
-  height: calc(100vh - 104px); /* Altura total menos a nova altura do header e footer */
+  background-color: (0,0,0 .200);
+  height: calc(100vh - 104px);
   overflow-y: auto;
   transition: margin-left 0.3s ease;
 }
@@ -14,11 +14,11 @@
 
 .main-content {
   display: flex;
-  height: calc(100vh - 104px); /* Altura total menos header e footer */
-  margin-top: 0px; /* Espaço ajustado para o cabeçalho */
+  height: calc(100vh - 104px); 
+  margin-top: 0px;
   padding-bottom: 42px;
   box-sizing: border-box;
 }
 .footer.collapsed {
-  margin-left: 90px; /* Ajuste para o rodapé quando a sidebar estiver colapsada */
+  margin-left: 90px; 
 }

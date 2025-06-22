@@ -1,9 +1,9 @@
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import KEDBSearch from "../../components/KEDBSearch/KEDBSearch";
-import NoData from "../../components/NoData/NoData";
-import Pagination from "../../components/Pagination/Pagination";
-import TableKnowError from "../../components/TableKnowError/TableKnowError";
+import KEDBSearch from "../../Components/KEDBSearch/KEDBSearch";
+import NoData from "../../Components/NoData/NoData";
+import Pagination from "../../Components/Pagination/Pagination";
+import TableKnowError from "../../Modules/TableKnowError/TableKnowError";
 import { knowErrorSimpleDTO } from "../../models/knowErrorDTO";
 import * as knowErrorService from "../../Service/Kow-error-service";
 

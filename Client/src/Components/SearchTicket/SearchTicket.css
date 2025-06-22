@@ -1,0 +1,8 @@
+.container-search-ticket {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 20px;
+  justify-content: space-between;
+  padding: 10px;
+}

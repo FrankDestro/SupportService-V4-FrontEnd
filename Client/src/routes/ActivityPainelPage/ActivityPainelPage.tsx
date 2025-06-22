@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
-import ActivityPanel from "../../components/ActivityPanelSummaryTickets/ActivityPanelSummaryTickets";
-import LineChartSupportByDay from "../../components/Dashboard/LineChartSupportByDay/LineChartSupportByDay";
-import PieChartByUrgency from "../../components/Dashboard/PieChartByUrgency/PieChartByUrgency";
-import PieChartDonutByStatusTicket from "../../components/Dashboard/PieChartDonutByStatusTicket/PieChartDonutByStatusTicket";
-import SlaIndicators from "../../components/Dashboard/SlaIndicators/SlaIndicators";
-import SearchPanel from "../../components/SearchPanel/SearchPanel";
+import ActivityPanel from "../../Modules/ActivityPanelSummaryTickets/ActivityPanelSummaryTickets";
+import LineChartSupportByDay from "../../Modules/Dashboard/LineChartSupportByDay/LineChartSupportByDay";
+import PieChartByUrgency from "../../Modules/Dashboard/PieChartByUrgency/PieChartByUrgency";
+import PieChartDonutByStatusTicket from "../../Modules/Dashboard/PieChartDonutByStatusTicket/PieChartDonutByStatusTicket";
+import SlaIndicators from "../../Modules/Dashboard/SlaIndicators/SlaIndicators";
+import SearchPanel from "../../Components/SearchPanel/SearchPanel";
 import { activityPanelSummaryPercentTicketsDTO } from "../../models/activityPanelSummaryPercentTickets";
 import { ActivityPanelSummaryTicketsByUrgencyDTO } from "../../models/activityPanelSummaryTicketsByUrgency";
 import { activityPanelSummaryTicketsDTO } from "../../models/activityPanelSummaryTicketsDTO";

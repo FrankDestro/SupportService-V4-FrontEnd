@@ -1,6 +1,6 @@
 import { faCheck, faSave } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import Button from "../../../components/Button/Button";
+import Button from "../../../Components/Button/Button";
 import { UserDTO, UserDTOUpdate } from "../../../models/RequesterDTO";
 import * as userService from "../../../Service/user-service";
 import './ProfileSettingsPage.css';

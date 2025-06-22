@@ -1,7 +1,7 @@
 import { faCheckCircle, faSave } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import Button from "../../../components/Button/Button";
-import DialogInfo from "../../../components/DialogInfo/DialogInfo";
+import Button from "../../../Components/Button/Button";
+import DialogInfo from "../../../Components/DialogInfo/DialogInfo";
 import { SLADTO } from "../../../models/slaDTO";
 import * as slaService from '../../../Service/sla-service';
 import './SlaSettingsPage.css';

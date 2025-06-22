@@ -3,11 +3,11 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as loginService from "../../../Service/login-service";
 import LockIcon from "../../../assets/lock.png";
-import InputCustom from "../../../components/InputCustom/InputCustom";
+import InputCustom from "../../../Components/FormComponents/InputCustom/InputCustom";
 import { ContextToken } from "../../../utils/context-token";
 import * as forms from "../../../utils/forms";
 import "./Login.css";
-import Button from "../../../components/Button/Button";
+import Button from "../../../Components/Button/Button";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

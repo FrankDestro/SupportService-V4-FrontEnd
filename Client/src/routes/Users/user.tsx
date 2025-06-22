@@ -1,9 +1,9 @@
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import NoData from "../../components/NoData/NoData";
-import Pagination from "../../components/Pagination/Pagination";
-import SearchUser from "../../components/SearchUser/SearchUser";
-import TableUsers from "../../components/TableUsers/TableUsers";
+import NoData from "../../Components/NoData/NoData";
+import Pagination from "../../Components/Pagination/Pagination";
+import SearchUser from "../../Components/SearchUser/SearchUser";
+import TableUsers from "../../Modules/TableUsers/TableUsers";
 import { UserDTO } from "../../models/RequesterDTO";
 import * as userService from "../../Service/user-service";
 

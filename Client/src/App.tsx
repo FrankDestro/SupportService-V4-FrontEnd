@@ -1,5 +1,5 @@
-import "bootstrap"; // Para incluir o JavaScript do Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css"; // Para incluir o CSS do Bootstrap
+import "bootstrap"; 
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Auth from "./routes/Auth/Auth";
@@ -15,6 +15,7 @@ import Test from "./routes/Test/Test";
 import Ticket from "./routes/Tickets/tickets";
 import User from "./routes/Users/user";
 import KnowErrorDbPage from "./routes/knowErrorDbPage/KnowErrorDbPage";
+
 
 function App() {
   return (
