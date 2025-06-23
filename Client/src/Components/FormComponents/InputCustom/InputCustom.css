@@ -1,6 +1,7 @@
 .custom2-input-wrapper {
   position: relative;
   display: inline-block;
+  margin: 0!important;
 }
 
 .custom2-input {

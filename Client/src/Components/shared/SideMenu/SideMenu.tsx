@@ -134,19 +134,19 @@ const SideMenu: React.FC<SideMenuProps> = ({ isCollapsed, toggleSidebar }) => {
               }}
             >
               <h3>Home</h3>
-              <FontAwesomeIcon
+              {/* <FontAwesomeIcon
                 icon={isHomeOpen ? faAngleDown : faAngleRight}
                 className="icon-arrow"
                 color=" #ffffff9d"
-              />
+              /> */}
             </div>
           </Link>
-          {isHomeOpen && (
+          {/* {isHomeOpen && (
             <div className="container-submenu-link-home-sidebar">
               <Link to="/home/option1">Option 1</Link>
               <Link to="/home/option2">Option 2</Link>
             </div>
-          )}
+          )} */}
           <Link to="/ticket" className="link">
             <FontAwesomeIcon icon={faTicket} className="icon" />
             <h3>Ticket</h3>

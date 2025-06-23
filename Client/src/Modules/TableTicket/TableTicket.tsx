@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { faClock, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { TicketDTO, TicketSimpleDTO } from "../../models/ticketDTO";
 import * as ticketService from "../../Service/ticket-service";
 import * as functions from "../../utils/functions";
 import "./TableTicket.css";
-import { useEffect, useState } from "react";
 
 type TableTicketProps = {
   tickets: TicketSimpleDTO[];
@@ -64,25 +64,33 @@ function TableTicket({ tickets, onFilter }: TableTicketProps) {
               <tr key={ticket.id} onClick={() => handleChamadoClick(ticket)}>
                 <td>{ticket.id}</td>
                 <td>{ticket.subject}</td>
-                <td>
-                  {functions.formatDate(ticket.registrationDate)}
-                </td>
+                <td>{functions.formatDate(ticket.registrationDate)}</td>
                 <td>{functions.formatDate(ticket.dueDate)}</td>
                 <td
                   style={{
-                    
                     alignItems: "center",
-                    textAlign: "center",                
+                    textAlign: "center",
                   }}
                 >
-                  <div>
-                    {/* <FontAwesomeIcon
-                      icon={faClock}
-                      style={{ marginRight: "10px" }}
-                    /> */}
-                  </div>
+                  <td
+                    style={{
+                      alignItems: "center",
+                      textAlign: "center",
+                      backgroundColor: functions.isSlaCritical(ticket.dueDate)
+                        ? "#FFE0E0" // Vermelho claro se o SLA estiver crítico
+                        : "#E6F4EA", // Verde claro suave se estiver OK
 
-                  {functions.calculateRemainingTime(ticket.dueDate)}
+                      color: functions.isSlaCritical(ticket.dueDate)
+                        ? "#FF0000" // Texto vermelho se crítico
+                        : "#2E7D32", // Texto verde escuro se não for crítico
+
+                      fontWeight: functions.isSlaCritical(ticket.dueDate)
+                        ? "bold" // Negrito se crítico
+                        : "normal", // Normal se não for crítico
+                    }}
+                  >
+                    {functions.calculateRemainingTime(ticket.dueDate)}
+                  </td>
                 </td>
                 <td>{ticket.sla.severity}</td>
                 <td>
@@ -96,7 +104,7 @@ function TableTicket({ tickets, onFilter }: TableTicketProps) {
                 </td>
                 <td>{ticket.categoryTicket.name}</td>
                 <td>{`${ticket.requester.firstName} ${ticket.requester.lastName}`}</td>
-                <td>{ticket.requester.department.description}</td>  
+                <td>{ticket.requester.department.description}</td>
                 <td>
                   {ticket.technician ? (
                     `${ticket.technician.firstName} ${ticket.technician.lastName}`

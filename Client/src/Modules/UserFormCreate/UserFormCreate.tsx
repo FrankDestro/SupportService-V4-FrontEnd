@@ -77,7 +77,7 @@ function UserFormCreate() {
       setImage(file);
       setFormData((prevData) => ({
         ...prevData,
-        imgProfile: URL.createObjectURL(file), // Atualiza a URL da imagem
+        imgProfile: URL.createObjectURL(file),
       }));
     }
   };
@@ -89,7 +89,7 @@ function UserFormCreate() {
     );
     setFormData((prevData) => ({
       ...prevData,
-      roles: selectedValues, // Atualiza as roles selecionadas
+      roles: selectedValues,
     }));
   };
 
@@ -129,6 +129,8 @@ function UserFormCreate() {
             <label htmlFor="imgProfile" className="custom-upload-button">
               Adicionar Foto
             </label>
+
+            
             <input
               type="file"
               id="imgProfile"

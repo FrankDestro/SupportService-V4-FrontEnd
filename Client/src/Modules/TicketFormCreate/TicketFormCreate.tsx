@@ -1,7 +1,12 @@
-import { faCheckCircle, faFile } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons/faDatabase";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import Button from "../../Components/Button/Button";
+import DialogInfo from "../../Components/DialogInfo/DialogInfo";
+import CustomSelect from "../../Components/FormComponents/CustomSelect/CustomSelect";
+import CustomTextarea from "../../Components/FormComponents/CustomTextarea/CustomTextarea";
+import CustomUploadFile from "../../Components/FormComponents/CustomUploadFile/CustomUploadFile";
+import CustomInput from "../../Components/FormComponents/InputCustom/InputCustom";
 import * as AttachmentService from "../../Service/attachment-service";
 import * as CategoryTicketService from "../../Service/category-service";
 import * as SlaService from "../../Service/sla-service";
@@ -12,26 +17,18 @@ import { CategoryTicketDTO } from "../../models/CategoryTicketDTO";
 import { SLADTO } from "../../models/slaDTO";
 import { TypeRequestDTO } from "../../models/typeRequestDTO";
 import { cleanDescription, toValuesTicket } from "../../utils/functions";
-import Button from "../../Components/Button/Button";
-import CustomTextarea from "../../Components/FormComponents/CustomTextarea/CustomTextarea";
-import DialogInfo from "../../Components/DialogInfo/DialogInfo";
 import "./TicketFormCreate.css";
-import CustomInput from "../../Components/FormComponents/InputCustom/InputCustom";
-import CustomSelect from "../../Components/FormComponents/CustomSelect/CustomSelect";
-import CustomUploadFile from "../../Components/FormComponents/Custom/CustomUploadFile";
 
 function TicketFormCreate() {
   const [typeRequests, setTypeRequests] = useState<TypeRequestDTO[]>([]);
   const [categoryTicket, setCategoryTicket] = useState<CategoryTicketDTO[]>([]);
   const [slaList, setSlaList] = useState<SLADTO[]>([]);
 
-  // SUCESSO
   const [dialogInfoData, setDialogInfoData] = useState({
     visible: false,
     message: "Operação com Sucesso!",
   });
 
-  // SALVANDO
   const [dialogInfoSave, setDialogInfoSave] = useState({
     visible: false,
     message: "Salvando Dados...",
@@ -56,34 +53,6 @@ function TicketFormCreate() {
       setSlaList(response.data);
     });
   }, []);
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const files = Array.from(e.target.files);
-      setAttachedFiles((prevFiles) => [...prevFiles, ...files]);
-    }
-  };
-
-  const handleRemoveFile = (index: number) => {
-    setAttachedFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
-  };
-
-  const renderAttachedFiles = () => {
-    return attachedFiles.map((file, index) => (
-      <div key={index} className="file-preview">
-        <FontAwesomeIcon icon={faFile} />
-        CustomTextarea
-        <p>{file.name}</p>
-        <button
-          type="button"
-          className="remove-file-button"
-          onClick={() => handleRemoveFile(index)}
-        >
-          X
-        </button>
-      </div>
-    ));
-  };
 
   const [formData, setFormData] = useState({
     description: "",
@@ -120,6 +89,8 @@ function TicketFormCreate() {
           message: "Salvando Dados...",
         });
 
+        console.log()
+
         setTimeout(() => {
           if (response.status == 201) {
             setDialogInfoSave({
@@ -128,7 +99,7 @@ function TicketFormCreate() {
             });
             setDialogInfoData({
               visible: true,
-              message: "Ticket Salvo com sucesso!!",
+            message: `Ticket salvo com sucesso! Número do ticket: ${response.data.id}`
             });
           }
         }, 200);
@@ -140,7 +111,7 @@ function TicketFormCreate() {
               fileName: file.name,
               type: file.type.split("/")[1].toUpperCase(),
               ticketId: response.data.id,
-            } as AttachmentsDTO; // Cast para o tipo esperado
+            } as AttachmentsDTO;
 
             AttachmentService.addAttachments(attachmentData);
           });
@@ -251,23 +222,6 @@ function TicketFormCreate() {
               />
             </div>
 
-            {/* <div className="ticket-form-item">
-              <label htmlFor="fileUpload" className="custom-upload-button">
-                Anexos
-              </label>
-              <input
-                type="file"
-                id="fileUpload"
-                name="files"
-                multiple
-                className="profile-image-input"
-                onChange={handleFileChange}
-              />
-              <div className="attached-files-container">
-                {renderAttachedFiles()}
-              </div>
-            </div> */}
-
             <CustomUploadFile
               label="Anexos"
               files={attachedFiles}
@@ -289,7 +243,6 @@ function TicketFormCreate() {
             </div>
           </div>
 
-          {/* SUCESSO */}
           {dialogInfoData.visible && (
             <DialogInfo
               IconColor="#3a7e24"
@@ -300,7 +253,7 @@ function TicketFormCreate() {
               onDialogClose={handleDialogInfoClose}
             />
           )}
-          {/* SALVANDO */}
+
           {dialogInfoSave.visible && (
             <DialogInfo
               IconColor="#3a7e24"

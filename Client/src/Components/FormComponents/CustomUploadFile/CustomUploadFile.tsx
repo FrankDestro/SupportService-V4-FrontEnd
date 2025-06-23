@@ -1,9 +1,8 @@
-import React from "react";
-import "./CustomUploadFile.css";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFile, faTrash } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 import FileIcon from "../../../utils/FileIcon";
-
+import "./CustomUploadFile.css";
 
 interface CustomFileUploadProps {
   label?: string;
@@ -28,9 +27,7 @@ const CustomUploadFile: React.FC<CustomFileUploadProps> = ({
     onFilesChange(updated);
   };
 
-
   console.log(files.map((arquivo) => arquivo.type));
-
 
   return (
     <div className="custom-file-upload">
@@ -47,12 +44,7 @@ const CustomUploadFile: React.FC<CustomFileUploadProps> = ({
       <div className="attached-files-container">
         {files.map((file, index) => (
           <div className="file-preview" key={index}>
-            {/* <FontAwesomeIcon icon={faFile} className="file-icon" /> */}
-
-           <FileIcon type={file.type.split("/")[1]} />
-
-
-
+            <FileIcon type={file.type.split("/")[1]} />
             <p>{file.name}</p>
             <button
               type="button"

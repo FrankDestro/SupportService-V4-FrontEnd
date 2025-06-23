@@ -1,35 +1,27 @@
 .search-user-container {
   display: flex;
-  flex-direction: row;
+  align-items: center!important;
   gap: 10px;
-  margin: 20px;
-  justify-content: space-between;
+  margin: 0;
+  padding: 20px;
 }
 
 .search-input-container {
   position: relative;
-  flex: 1; /* Faz o input ocupar espaço disponível */
-}
-
-.search-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
+  flex: 1; 
 }
 
 .filter-container {
   display: flex;
-  align-items: center; /* Alinha os itens verticalmente */
-  gap: 10px; /* Espaçamento entre os elementos */
+  align-items: center;
+  gap: 10px;
 }
 
 .status-select-container {
-  flex: 1; /* Faz o select ocupar espaço disponível */
+  flex: 1; 
 }
 
-.input-container {
-  position: relative;
-  margin: 20px 0; /* Ajuste conforme necessário */
+.container-button-search-user {
+  display: flex;
+  gap: 10px;
 }

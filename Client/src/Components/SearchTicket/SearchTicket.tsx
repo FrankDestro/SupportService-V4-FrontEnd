@@ -109,7 +109,7 @@ function SearchTicker({ onSearch }: Props) {
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          width="50rem"
+          width="100%"
           height="40px"
           label="Numero do ticket"
         />

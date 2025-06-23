@@ -34,7 +34,7 @@ const CustomTextarea: React.FC<CustomTextareaProps> = ({
   const shouldFloat = isFocused || value.length > 0;
 
   return (
-    <div className={`custom2-input-wrapper ${className}`} style={wrapperStyle}>
+    <div className={`custom-text-area-wrapper ${className}`} style={wrapperStyle}>
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -43,9 +43,9 @@ const CustomTextarea: React.FC<CustomTextareaProps> = ({
         style={{ resize }}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className="custom2-input textarea"
+        className="custom-text-area textarea"
       />
-      <label className={`custom2-label ${shouldFloat ? "float" : ""}`}>
+      <label className={`custom-text-area-label ${shouldFloat ? "float" : ""}`}>
         {label}
       </label>
     </div>

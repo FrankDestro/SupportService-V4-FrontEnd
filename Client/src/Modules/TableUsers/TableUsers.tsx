@@ -17,21 +17,28 @@ const TableUsers = ({ users }: TableUsersProps) => {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Avatar</th>
-            <th>Department</th>
+            <th>Foto</th>
+            <th>Departamento</th>
             <th>Area de Solução</th>
-            <th>Name</th>
+            <th>Nome</th>
             <th>Email</th>
             <th>Status</th>
-            <th>Role</th>
-            <th>Created By</th>
+            <th>Perfil</th>
+            <th>Criado por</th>
             <th>Bloqueado</th>
             <th>Detalhes</th>
           </tr>
         </thead>
         <tbody>
           {users.map((usuario) => (
-            <tr key={usuario.id}>
+            <tr
+              key={usuario.id}
+              style={
+                usuario.statusUser.toLowerCase() === "inactive"
+                  ? { backgroundColor: "#FFF5F5",  borderLeft: "3px solid red"} // vermelho bem levinho
+                  : {}
+              }
+            >
               <td>{usuario.id}</td>
               <td>
                 <img
@@ -41,8 +48,6 @@ const TableUsers = ({ users }: TableUsersProps) => {
               </td>
               <td>Departamento descricao</td>
               <td>Area solucionadora descricao</td>
-              {/* <td>{usuario.department.description}</td>
-              <td>{usuario.solvingArea.name}</td> */}
               <td>
                 {usuario.firstName} {usuario.lastName}
               </td>
@@ -54,7 +59,11 @@ const TableUsers = ({ users }: TableUsersProps) => {
                   {usuario.statusUser}
                 </span>
               </td>
-              <td>{usuario.roles.map((roles) => roles.authority)}</td>
+              <td>
+                {usuario.roles.map((roles) =>
+                  roles.authority.split("_").slice(1).join("_")
+                )}
+              </td>
               <td>{usuario.createdBy}</td>
               <td>
                 <span

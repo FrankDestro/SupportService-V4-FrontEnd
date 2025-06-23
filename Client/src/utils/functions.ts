@@ -1,31 +1,37 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { differenceInDays, differenceInHours, differenceInMinutes, parseISO } from "date-fns";
+import {
+  differenceInDays,
+  differenceInHours,
+  differenceInMinutes,
+  parseISO,
+} from "date-fns";
 import { UserDTO } from "../models/RequesterDTO";
 import { FileType } from "../models/EnumTypes";
 
-
-export const getStatusUserBadgeStyle = (status: string): React.CSSProperties => {
+export const getStatusUserBadgeStyle = (
+  status: string
+): React.CSSProperties => {
   switch (status.toLowerCase()) {
-    case "inactive": // Use "não" em vez de "nao" se o seu dado tiver acentos
+    case "inactive":
       return {
-        backgroundColor: "#FF0000", // Shade of red for blocked status
-        color: "white",
+        backgroundColor: "#F8D7DA", // Vermelho claro
+        color: "#721C24", // Texto vermelho escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
       };
-    case "active": // Use "sim" em vez de "default"
+    case "active":
       return {
-        backgroundColor: "#8DD600", // Shade of green for unblocked status
-        color: "white",
+        backgroundColor: "#D4EDDA", // Verde claro
+        color: "#155724", // Texto verde escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
       };
     default:
       return {
-        backgroundColor: "#8DD600", // Fallback to green
-        color: "white",
+        backgroundColor: "#D1ECF1", // Azul claro como fallback
+        color: "#0C5460", // Texto azul escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
@@ -37,26 +43,26 @@ export const getBlockedStatusBadgeStyle = (
   statusBlock: boolean
 ): React.CSSProperties => {
   switch (statusBlock) {
-    case true: // Use "não" em vez de "nao" se o seu dado tiver acentos
+    case true:
       return {
-        backgroundColor: "#FF0000", // Shade of red for blocked status
-        color: "white",
+        backgroundColor: "#FDEAEA", // Vermelho muito claro
+        color: "#B71C1C", // Vermelho escuro forte
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
       };
-    case false: // Use "sim" em vez de "default"
+    case false:
       return {
-        backgroundColor: "#8DD600", // Shade of green for unblocked status
-        color: "white",
+        backgroundColor: "#EAF7EA", // Verde muito claro
+        color: "#2E7D32", // Verde escuro diferente
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
       };
     default:
       return {
-        backgroundColor: "#8DD600", // Fallback to green
-        color: "white",
+        backgroundColor: "#E0E0E0", // Cinza claro como fallback
+        color: "#424242", // Cinza escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
@@ -70,48 +76,48 @@ export const getStatusTicketBadgeStyle = (
   switch (statusTicket.toUpperCase()) {
     case "OPEN":
       return {
-        backgroundColor: "#007BFF", // Azul para status de "Aberto"
-        color: "white",
+        backgroundColor: "#CCE5FF", // Azul claro suave
+        color: "#004085",           // Azul escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
       };
     case "IN_PROGRESS":
       return {
-        backgroundColor: "#FFC107", // Amarelo para "Em Progresso"
-        color: "white",
+        backgroundColor: "#FFF3CD", // Amarelo claro suave
+        color: "#856404",           // Amarelo escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
       };
     case "FROZEN":
       return {
-        backgroundColor: "#6C757D", // Cinza para "Congelado"
-        color: "white",
+        backgroundColor: "#D6D8DB", // Cinza claro
+        color: "#383D41",           // Cinza escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
       };
     case "CANCELED":
       return {
-        backgroundColor: "#DC3545", // Vermelho para "Cancelado"
-        color: "white",
+        backgroundColor: "#F8D7DA", // Vermelho claro suave
+        color: "#721C24",           // Vermelho escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
       };
     case "FINISHED":
       return {
-        backgroundColor: "#28A745", // Verde para "Finalizado"
-        color: "white",
+        backgroundColor: "#D4EDDA", // Verde claro suave
+        color: "#155724",           // Verde escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
       };
     default:
       return {
-        backgroundColor: "#8DD600", // Fallback padrão verde
-        color: "white",
+        backgroundColor: "#D1ECF1", // Azul claro fallback
+        color: "#0C5460",           // Azul escuro
         padding: "4px 8px",
         borderRadius: "4px",
         fontSize: "12px",
@@ -126,7 +132,7 @@ export const getStatusKnowErrorsBadgeStyle = (
   switch (knowErrorStatus.toUpperCase()) {
     case "OPEN":
       return {
-        backgroundColor: "#FFC107", /* Amarelo */
+        backgroundColor: "#FFC107" /* Amarelo */,
         color: "white",
         padding: "4px 8px",
         borderRadius: "4px",
@@ -134,7 +140,7 @@ export const getStatusKnowErrorsBadgeStyle = (
       };
     case "UNDER_ANALYSIS":
       return {
-        backgroundColor: "#17a2b8", /* Azul Claro */
+        backgroundColor: "#17a2b8" /* Azul Claro */,
         color: "white",
         padding: "4px 8px",
         borderRadius: "4px",
@@ -142,7 +148,7 @@ export const getStatusKnowErrorsBadgeStyle = (
       };
     case "DOCUMENTED":
       return {
-        backgroundColor: "#6c757d", /* Cinza Claro */
+        backgroundColor: "#6c757d" /* Cinza Claro */,
         color: "white",
         padding: "4px 8px",
         borderRadius: "4px",
@@ -150,7 +156,7 @@ export const getStatusKnowErrorsBadgeStyle = (
       };
     case "SOLUTION_PENDING":
       return {
-        backgroundColor: "#fd7e14",  /* Laranja Escuro */
+        backgroundColor: "#fd7e14" /* Laranja Escuro */,
         color: "white",
         padding: "4px 8px",
         borderRadius: "4px",
@@ -158,7 +164,7 @@ export const getStatusKnowErrorsBadgeStyle = (
       };
     case "RESOLVED":
       return {
-        backgroundColor: " #28a745", /* Verde */  
+        backgroundColor: " #28a745" /* Verde */,
         color: "white",
         padding: "4px 8px",
         borderRadius: "4px",
@@ -166,7 +172,7 @@ export const getStatusKnowErrorsBadgeStyle = (
       };
     default:
       return {
-        backgroundColor: "#343a40", /* Cinza Escuro */
+        backgroundColor: "#343a40" /* Cinza Escuro */,
         color: "white",
         padding: "4px 8px",
         borderRadius: "4px",
@@ -230,7 +236,6 @@ export const getSeverityBadgeStyle = (
   }
 };
 
-
 export function calculateRemainingTime(dueDate: string): string {
   // Converte a string de data fornecida para um objeto Date
   const dueDateObj = parseISO(dueDate);
@@ -242,18 +247,17 @@ export function calculateRemainingTime(dueDate: string): string {
   const differenceDays = differenceInDays(dueDateObj, currentDate);
 
   // Calcula os minutos restantes após calcular as horas
-  const remainingMinutes = Math.abs(differenceMinutes - (differenceHours * 60));
-  
+  const remainingMinutes = Math.abs(differenceMinutes - differenceHours * 60);
+
   // Formata a diferença em uma string no formato "x dias, x horas e x minutos"
-  const daysString = differenceDays > 0 ? `${differenceDays} dias, ` : '';
+  const daysString = differenceDays > 0 ? `${differenceDays} dias, ` : "";
   const hoursString = `${Math.abs(differenceHours)} horas `;
   const minutesString = `${remainingMinutes} minutos`;
 
-  const sign = differenceMinutes < 0 ? '-' : '';
+  const sign = differenceMinutes < 0 ? "-" : "";
 
   return `${sign}${daysString}${hoursString}${minutesString}`;
 }
-
 
 export const formatDate = (date: Date | string) => {
   const parsedDate = new Date(date);
@@ -262,13 +266,15 @@ export const formatDate = (date: Date | string) => {
     return "Data inválida";
   }
 
-  return parsedDate.toLocaleString('pt-BR', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).replace(',', '');
+  return parsedDate
+    .toLocaleString("pt-BR", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    })
+    .replace(",", "");
 };
 
 export function toValuesTicket(inputs: any) {
@@ -276,7 +282,7 @@ export function toValuesTicket(inputs: any) {
 
   for (const name in inputs) {
     if (name === "typeRequest" || name === "categoryTicket" || name === "sla") {
-      data[name] = { id: parseInt(inputs[name], 10) }; 
+      data[name] = { id: parseInt(inputs[name], 10) };
     } else {
       data[name] = inputs[name];
     }
@@ -284,14 +290,13 @@ export function toValuesTicket(inputs: any) {
   return data;
 }
 
-
 export const cleanDescription = (description: string) => {
-  return description.replace(/<\/?p>/g, '');
+  return description.replace(/<\/?p>/g, "");
 };
 
-
 export const validatePassword = (password: string): boolean => {
-  const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\\/?]).{8,}$/;
+  const regex =
+    /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\\/?]).{8,}$/;
   return regex.test(password);
 };
 
@@ -299,7 +304,6 @@ export const removeTags = (value: string) => {
   const plainText = value.replace(/<\/?[^>]+(>|$)/g, "");
   return plainText;
 };
-
 
 export function toUserDTO(formData: any): UserDTO {
   const data: any = {};
@@ -320,7 +324,9 @@ export function toUserDTO(formData: any): UserDTO {
 
   // Transformando permissões (roles) em um array de objetos, caso existam
   if (formData.roles && Array.isArray(formData.roles)) {
-    data.roles = formData.roles.map((roleId: string) => ({ id: parseInt(roleId, 10) }));
+    data.roles = formData.roles.map((roleId: string) => ({
+      id: parseInt(roleId, 10),
+    }));
   } else {
     data.roles = [];
   }
@@ -334,7 +340,6 @@ export function toUserDTO(formData: any): UserDTO {
 
   return data;
 }
-
 
 export function getFileType(mimeType: string): FileType | null {
   switch (mimeType) {
@@ -358,3 +363,15 @@ export function getFileType(mimeType: string): FileType | null {
       return null; // Ou você pode lançar um erro aqui se o tipo for inválido
   }
 }
+
+
+export function isSlaCritical(dueDate: string): boolean {
+  const now = new Date().getTime();
+  const due = new Date(dueDate).getTime();
+  const diffMs = due - now;
+
+  const fortyFiveMinutesMs = 45 * 60 * 1000;
+
+  return diffMs <= fortyFiveMinutesMs;
+}
+
