@@ -15,6 +15,7 @@ type QueryParams = {
   categoryTicket: string;
   typeRequest: string;
   sla: string;
+  size: number;
 };
 
 function Ticket() {
@@ -31,6 +32,7 @@ function Ticket() {
     categoryTicket: "",
     typeRequest: "",
     sla: "",
+    size: 10,
   });
 
   useEffect(() => {
@@ -43,7 +45,8 @@ function Ticket() {
         queryParams.area,
         queryParams.categoryTicket,
         queryParams.typeRequest,
-        queryParams.sla
+        queryParams.sla,
+        queryParams.size
       )
       .then((response) => {
         const { totalPages, content } = response.data;
@@ -87,6 +90,14 @@ function Ticket() {
     setShowPagination(isTabOneActive);
   };
 
+  const handleRowsPerPageChange = (newSize: number) => {
+    setQueryParams({
+      ...queryParams,
+      page: 0,
+      size: newSize,
+    });
+  };
+
   return (
     <div>
       <div className="container-base">
@@ -109,6 +120,8 @@ function Ticket() {
                 totalPages={totalPages}
                 currentPage={queryParams.page}
                 onPageChange={handlePageChange}
+                size={queryParams.size}
+                onRowsPerPageChange={handleRowsPerPageChange}
               />
             </div>
           </div>

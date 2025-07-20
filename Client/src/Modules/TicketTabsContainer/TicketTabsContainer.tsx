@@ -15,6 +15,8 @@ type TicketsProps = {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  size: number;
+  onRowsPerPageChange: (size: number) => void;
 };
 
 type Tab = {
@@ -28,6 +30,8 @@ function TicketTabsContainer({
   currentPage,
   totalPages,
   onPageChange,
+  size,
+  onRowsPerPageChange,
 }: TicketsProps) {
   const [activeKey, setActiveKey] = useState<string | undefined>("1");
   const [openTabs, setOpenTabs] = useState<
@@ -115,6 +119,8 @@ function TicketTabsContainer({
               currentPage={currentPage}
               totalPages={totalPages}
               onPageChange={onPageChange}
+              rowsPerPage={size} // <- valor atual do tamanho da página
+              onRowsPerPageChange={onRowsPerPageChange} // <- função para atualizar
             />
           </div>
         </Tab>

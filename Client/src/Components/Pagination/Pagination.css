@@ -5,7 +5,6 @@
   list-style: none;
   padding-left: 0;
   gap: 0.5rem;
-  margin-top: 1rem;
 }
 
 .page-item {
@@ -14,10 +13,10 @@
 
 .page-link {
   border: none;
-  background-color: #f1f5f9; /* azul bem claro */
-  color: #0f172a; /* cinza escuro */
+  background-color: #f1f5f9;
+  color: #0f172a;
   padding: 0.5rem 0.9rem;
-  border-radius: 9999px;
+  border-radius: 50%;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
@@ -26,15 +25,15 @@
 }
 
 .page-link:hover {
-  background-color: #e2e8f0;
+  background-color: #3355776c;
   transform: translateY(-1px);
 }
 
 .page-item.active .page-link {
-  background-color: #3b82f6;
+  background-color: #11344d;
   color: white;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 2px 8px rgba(59, 131, 246, 0.212);
 }
 
 .page-item.disabled .page-link {
@@ -48,4 +47,18 @@
 .page-item button.page-link:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.rows-per-page-selector {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.rows-per-page-selector label {
+  font-size: 14px;
+}
+
+.form-select {
+  margin-right: 20px;
 }

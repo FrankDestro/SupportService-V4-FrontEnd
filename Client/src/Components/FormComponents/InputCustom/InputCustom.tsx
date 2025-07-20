@@ -8,6 +8,7 @@ interface CustomInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   width?: string | number;
   height?: string | number;
+  type?: string;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({

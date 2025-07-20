@@ -4,12 +4,12 @@ import {
   FaCalendarAlt,
   FaCog,
   FaExclamationCircle,
-  FaInfoCircle
+  FaInfoCircle,
 } from "react-icons/fa";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import calendarioIcon from "../../../assets/logo.svg";
+import * as loginService from "../../../Service/login-service";
 import "./header.css";
-
 
 function Header() {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -17,7 +17,7 @@ function Header() {
   const notificationRef = useRef<HTMLDivElement>(null);
   const settingsRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
-
+  const navigate = useNavigate();
   const isLoginPage = location.pathname === "/";
 
   const handleNotificationClick = () => {
@@ -27,7 +27,7 @@ function Header() {
 
   const handleSettingsClick = () => {
     setShowSettings((prev) => !prev);
-    setShowNotifications(false); 
+    setShowNotifications(false);
   };
 
   useEffect(() => {
@@ -67,81 +67,88 @@ function Header() {
     },
   ];
 
+  const handleLogout = (_event: React.MouseEvent<HTMLDivElement>) => {
+    loginService.Logout();
+    navigate("/");
+  };
+
   return (
     <header className="header">
-    <div className="logo">
-      <img src={calendarioIcon} alt="CalendarioIcon" />
-      <h1>Support Service</h1>
-    </div>
-  
-    {!isLoginPage && (
-      <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-        <nav className="nav" style={{ display: "flex", alignItems: "center" }}>
-          <ul>
-            <li>
-              <a href="/home">opções rapidas</a>
-            </li>
-          </ul>
-        </nav>
-  
-        <div
-          className="notifications"
-          onClick={handleNotificationClick}
-          ref={notificationRef}
-        >
-          <FaBell className="notification-icon" />
-          {notifications.length > 0 && (
-            <span className="notification-badge">{notifications.length}</span>
-          )}
-          {showNotifications && (
-            <div className="notification-submenu">
-              <ul>
-                {notifications.map((notification, index) => (
-                  <li key={index} className="notification-item">
-                    <div className="notification-icon-container">
-                      {notification.icon}
-                    </div>
-                    <div className="notification-content">
-                      <strong>{notification.title}</strong>
-                      <p>{notification.message}</p>
-                      <span className="notification-date">"2025-06-23"</span>
+      <div className="logo">
+        <img src={calendarioIcon} alt="CalendarioIcon" />
+        <h1>Support Service</h1>
+      </div>
+
+      {!isLoginPage && (
+        <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+          <nav
+            className="nav"
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            <ul>
+              <li>
+                <a href="/home">opções rapidas</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div
+            className="notifications"
+            onClick={handleNotificationClick}
+            ref={notificationRef}
+          >
+            <FaBell className="notification-icon" />
+            {notifications.length > 0 && (
+              <span className="notification-badge">{notifications.length}</span>
+            )}
+            {showNotifications && (
+              <div className="notification-submenu">
+                <ul>
+                  {notifications.map((notification, index) => (
+                    <li key={index} className="notification-item">
+                      <div className="notification-icon-container">
+                        {notification.icon}
+                      </div>
+                      <div className="notification-content">
+                        <strong>{notification.title}</strong>
+                        <p>{notification.message}</p>
+                        <span className="notification-date">"2025-06-23"</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="view-all">Ver todos</div>
+              </div>
+            )}
+          </div>
+
+          <div
+            className="settings"
+            onClick={handleSettingsClick}
+            ref={settingsRef}
+          >
+            <FaCog className="settings-icon" />
+            {showSettings && (
+              <div className="settings-submenu">
+                <ul>
+                  <li>
+                    <span>Meu Perfil </span>
+                  </li>
+                  <li>
+                    <span>Configurações </span>
+                  </li>
+                  <li>
+                    <div onClick={handleLogout}>
+                      <span>Sair</span>
                     </div>
                   </li>
-                ))}
-              </ul>
-              <div className="view-all">Ver todos</div>
-            </div>
-          )}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
-  
-        <div
-          className="settings"
-          onClick={handleSettingsClick}
-          ref={settingsRef}
-        >
-          <FaCog className="settings-icon" />
-          {showSettings && (
-            <div className="settings-submenu">
-              <ul>
-                <li>
-                  <a href="/profile">Meu Perfil</a>
-                </li>
-                <li>
-                  <a href="/settings">Configurações</a>
-                </li>
-                <li>
-                  <div className="container-">
-                    <a href="/logout">Sair</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
-      </div>
-    )}
-  </header>
-  
+      )}
+    </header>
   );
 }
 

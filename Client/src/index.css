@@ -194,13 +194,6 @@ select option {
   text-align: center;
 }
 
-.support-form-controls-container {
-  width: 100%;
-  display: grid;
-  grid-gap: 20px;
-  margin: 40px 0;
-}
-
 .support-form-control {
   width: 100%;
   height: 40px;

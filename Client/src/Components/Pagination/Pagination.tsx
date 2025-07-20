@@ -1,16 +1,26 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowLeft,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 import "./Pagination.css";
+import React from "react";
 
 interface BootstrapPaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  rowsPerPage: number;
+  onRowsPerPageChange: (rows: number) => void;
 }
 
-function Pagination({
+const Pagination: React.FC<BootstrapPaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,
-}: BootstrapPaginationProps) {
+  rowsPerPage,
+  onRowsPerPageChange,
+}) => {
   const renderPageNumbers = () => {
     const pageNumbers = [];
     for (let i = 0; i < totalPages; i++) {
@@ -29,34 +39,52 @@ function Pagination({
   };
 
   return (
-    <nav aria-label="Page navigation" style={{ marginTop: "5px" }}>
-      <ul className="pagination">
-        <li className={`page-item ${currentPage === 0 ? "disabled" : ""}`}>
-          <button
-            className="page-link"
-            onClick={() => onPageChange(currentPage - 1)}
-            aria-label="Previous"
-          >
-            &laquo;
-          </button>
-        </li>
-        {renderPageNumbers()}
-        <li
-          className={`page-item ${
-            currentPage === totalPages - 1 ? "disabled" : ""
-          }`}
+    <div className="d-flex justify-content-between align-items-center" style={{ marginTop: "20px"}}>
+      <div className="rows-per-page-selector">
+        <label style={{ marginRight: "8px" }}>Itens por página:</label>
+        <select
+          value={rowsPerPage}
+          onChange={(e) => onRowsPerPageChange(Number(e.target.value))}
+          className="form-select"
+          style={{ width: "auto", display: "inline-block" }}
         >
-          <button
-            className="page-link"
-            onClick={() => onPageChange(currentPage + 1)}
-            aria-label="Next"
+          {[5, 10, 12, 20, 50].map((value) => (
+            <option key={value} value={value}>
+              {value}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <nav aria-label="Page navigation">
+        <ul className="pagination mb-0">
+          <li className={`page-item ${currentPage === 0 ? "disabled" : ""}`}>
+            <button
+              className="page-link"
+              onClick={() => onPageChange(currentPage - 1)}
+              aria-label="Previous"
+            >
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
+          </li>
+          {renderPageNumbers()}
+          <li
+            className={`page-item ${
+              currentPage === totalPages - 1 ? "disabled" : ""
+            }`}
           >
-            &raquo;
-          </button>
-        </li>
-      </ul>
-    </nav>
+            <button
+              className="page-link"
+              onClick={() => onPageChange(currentPage + 1)}
+              aria-label="Next"
+            >
+              <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
-}
+};
 
 export default Pagination;

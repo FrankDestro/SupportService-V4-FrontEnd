@@ -1,7 +1,7 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { Oval } from "react-loader-spinner";
+import { Bars, Oval } from "react-loader-spinner";
 import "./button.css";
 
 type Props = {
@@ -48,12 +48,11 @@ function Button({
       >
         {isLoading ? (
           <div className="container-spiner-button-login">
-            <Oval
+            <Bars
               visible={true}
               height="30"
               width="30"
               color="white"
-              secondaryColor="white"
               ariaLabel="oval-loading"
               wrapperStyle={{}}
               wrapperClass="oval-spinner"

@@ -102,13 +102,16 @@ function Login() {
         <div className="support-login-form-container">
           <form className="support-card support-form" onSubmit={handleSubmit}>
             <h2>Login</h2>
-            <div className="support-form-controls-container">
+            <div className="support-container-login-inputs">
               <div>
                 <InputCustom
                   {...formData.username}
-                  className="support-form-control"
                   onChange={handleInputChange}
                   onTurnDirty={handleTurnDirty}
+                  width="100%"
+                  height="40px"
+                  label="Email"
+                  placeholder=""
                 />
                 <div className="support-form-error">
                   {formData.username.message}
@@ -118,15 +121,18 @@ function Login() {
               <div className="password-container">
                 <InputCustom
                   {...formData.password}
-                  className="support-form-control"
                   onChange={handleInputChange}
                   onTurnDirty={handleTurnDirty}
                   type={passwordType}
+                  width="100%"
+                  height="40px"
+                  label="Password"
+                  placeholder=""
                 />
 
                 <div className="eye-icon" onClick={toggleSenha}>
                   <FontAwesomeIcon
-                    icon={mostrarSenha ? faEyeSlash : faEye}
+                    icon={mostrarSenha ? faEye : faEyeSlash}
                     size="lg"
                   />
                 </div>

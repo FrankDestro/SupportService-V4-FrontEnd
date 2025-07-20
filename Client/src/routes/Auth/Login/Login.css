@@ -8,6 +8,13 @@
   background: linear-gradient(to right, #ececec, #f9f9f9); /* Gradiente suave */
 }
 
+.support-container-login-inputs {
+  width: 100%;
+  display: grid;
+  grid-gap: 30px;
+  margin: 40px 0;
+}
+
 .login-card {
   border-top: 5px solid var(--color-border-secondary);
   border-radius: 5px;
@@ -24,20 +31,21 @@
 .container-title-login {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Centralizar o título no topo */
-  margin-bottom: 0px; /* Espaço entre o título e o formulário */
+  justify-content: space-between; 
+  margin-bottom: 0px;
   position: relative;
   top: -60px;
 }
 
 .password-container {
   position: relative;
+  align-items: center;
 }
 
 .eye-icon {
   position: absolute;
   right: 10px;
-  top: 50%;
+  top: 60%;
   transform: translateY(-50%);
   cursor: pointer;
   color: gray;
