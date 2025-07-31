@@ -98,12 +98,6 @@ const AndamentoTab: React.FC<Props> = ({ andamentos, idTicket }) => {
     setDialogInfoData({ ...dialogInfoData, visible: false });
   };
 
-  useEffect(() => {
-    if (comentariosEndRef.current) {
-      comentariosEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [andamentos2]);
-
   const groupByDate = (andamentos: TicketHistoryDTO[]) => {
     const grouped: { [date: string]: TicketHistoryDTO[] } = {};
 
