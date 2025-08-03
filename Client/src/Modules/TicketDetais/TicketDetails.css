@@ -55,3 +55,8 @@
     background-color: #187bcd;
   }
   
+  .container-title-andamento-summary-historic {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }

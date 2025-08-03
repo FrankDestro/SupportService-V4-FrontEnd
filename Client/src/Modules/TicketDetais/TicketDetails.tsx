@@ -6,6 +6,10 @@ import AnexoTab from "../AnexoTab/AnexoTab";
 import { TicketDTO } from "../../models/ticketDTO";
 import { getAllHistoryById } from "../../Service/ticket-history-service";
 import { getAllAttachmentById } from "../../Service/attachment-service";
+import Button from "../../Components/Button/Button";
+import { faChartLine } from "@fortawesome/free-solid-svg-icons";
+import Modal from "../../Components/ModalDefault/Modal";
+import TicketTimelineChart from "../../Components/TicketTimelineChart/TicketTimelineChart";
 
 type Aba = "detalhes" | "andamento" | "anexo";
 
@@ -18,6 +22,7 @@ const TicketDetails: React.FC<Props> = ({ ticket }) => {
   const [andamentos, setAndamentos] = useState<any[]>([]);
   const [anexos, setAnexos] = useState<any[]>([]);
   const [carregandoAndamentos, setCarregandoAndamentos] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (abaAtiva === "andamento") {
@@ -32,7 +37,6 @@ const TicketDetails: React.FC<Props> = ({ ticket }) => {
         .finally(() => setCarregandoAndamentos(false));
     }
   }, [abaAtiva, ticket.id]);
-
 
   useEffect(() => {
     if (abaAtiva === "anexo" && anexos.length === 0) {
@@ -80,7 +84,29 @@ const TicketDetails: React.FC<Props> = ({ ticket }) => {
 
         {abaAtiva === "andamento" && (
           <div>
-            <h3>Histórico de Andamento</h3>
+            <h3
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              Histórico de Andamento
+              <div onClick={() => setShowModal(true)}>
+                <Button
+                  text="Ver histórico"
+                  icon={faChartLine}
+                  background="white"
+                  hoverColor="#d3d3d3"
+                  type="submit"
+                  borderRadius="5px"
+                  size="small"
+                  color="black"
+                  fontWeight="600"
+                  fontSize="12px"
+                />
+              </div>
+            </h3>
             {carregandoAndamentos ? (
               <p>Carregando andamento...</p>
             ) : (
@@ -94,11 +120,24 @@ const TicketDetails: React.FC<Props> = ({ ticket }) => {
             {carregandoAndamentos ? (
               <p>Carregando andamento...</p>
             ) : (
-              <AnexoTab anexos={anexos} idTicket={ticket.id}/>
+              <AnexoTab anexos={anexos} idTicket={ticket.id} />
             )}
           </div>
         )}
       </div>
+
+      <Modal
+        title="TimeLine Ticket"
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        footer=""
+        width="100%"
+        maxBodyHeight="60vh"
+      >
+        <TicketTimelineChart
+          data={andamentos.filter((e) => e.noteType === "SYSTEM_GENERATED")}
+        />
+      </Modal>
     </div>
   );
 };

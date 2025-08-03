@@ -243,6 +243,7 @@ const AndamentoTab: React.FC<Props> = ({ andamentos, idTicket }) => {
               borderRadius="5px"
             />
           </div>
+          
 
           {dialogInfoData.visible && (
             <DialogInfo

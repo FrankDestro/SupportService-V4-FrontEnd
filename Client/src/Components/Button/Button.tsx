@@ -15,11 +15,15 @@ type Props = {
   width?: string;
   type?: "submit" | "reset" | "button" | undefined;
   isLoading?: boolean;
+  color?: string;
+  fontWeight?: string;
+  fontSize?: string;
 };
 
 function Button({
   text,
   icon,
+  color,
   background,
   hoverColor,
   size = "medium",
@@ -28,6 +32,8 @@ function Button({
   width = "auto",
   type = "button",
   isLoading = false, 
+  fontWeight = "",
+  fontSize = ""
 }: Props) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -41,6 +47,9 @@ function Button({
           borderRadius,
           height,
           width,
+          color,
+          fontWeight,
+          fontSize,
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
